@@ -18,80 +18,84 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative min-h-[85vh] flex flex-col justify-between py-28 px-6 sm:px-12 md:px-20 max-w-7xl mx-auto overflow-hidden"
+      className="relative min-h-[80vh] flex flex-col justify-between py-28 px-6 sm:px-12 md:px-20 max-w-7xl mx-auto overflow-hidden"
     >
-      {/* Background radial glow */}
-      <div className="pointer-events-none absolute bottom-0 right-0 w-[500px] h-[500px] bg-[var(--cobalt)]/15 rounded-full blur-[140px]" />
+      {/* Background glow */}
+      <div className="pointer-events-none absolute bottom-0 right-0 w-[400px] h-[400px] bg-[var(--cobalt)]/[0.02] rounded-full blur-[140px]" />
 
       <div>
-        <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--silk)] font-semibold mb-6">
-          <StarIcon className="text-sm" />
+        <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-[var(--silk)] font-semibold mb-6">
+          <StarIcon className="text-[10px]" />
           <span>Get In Touch</span>
         </div>
 
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-[var(--color-light)] leading-[0.95] max-w-5xl mb-8"
+          className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-[var(--color-light)] leading-[0.95] max-w-5xl mb-6"
         >
           Let&apos;s engineer something extraordinary<span className="text-[var(--silk)]">.</span>
         </motion.h2>
 
-        <p className="font-body text-xl sm:text-2xl text-[var(--color)]/70 max-w-xl leading-relaxed mb-12">
+        <p className="font-body text-lg sm:text-xl text-[var(--color)]/50 max-w-lg leading-relaxed mb-10">
           Open to design engineering roles, full-stack systems, and data analytics challenges.
         </p>
 
-        {/* Action Buttons */}
-        <div className="flex flex-wrap items-center gap-4">
+        {/* CTA Buttons */}
+        <div className="flex flex-wrap items-center gap-3">
           <Magnetic strength={0.3}>
             <a
               href={`mailto:${profile.email}`}
-              className="px-8 py-4 rounded-full bg-[var(--color)] text-[var(--background)] font-display text-base font-bold hover:bg-[var(--silk)] transition-all duration-200 shadow-xl flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full btn-cobalt text-sm font-display font-bold flex items-center gap-2.5 shadow-lg shadow-blue-600/30 hover:scale-105 transition-all duration-300"
             >
               <span>Send an Email</span>
-              <span>↗</span>
+              <span className="text-xs transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
             </a>
           </Magnetic>
 
           <Magnetic strength={0.25}>
             <button
               onClick={handleCopyEmail}
-              className="px-6 py-4 rounded-full glass-pill text-xs font-mono text-[var(--color)] hover:border-[var(--silk)]/40 transition-colors"
+              className={`px-5 py-3.5 rounded-full text-[11px] font-mono transition-all duration-300 hover:scale-105 ${
+                copied
+                  ? 'bg-emerald-500 text-white font-semibold shadow-md shadow-emerald-500/40'
+                  : 'btn-outline hover:border-[var(--silk)]/60 hover:text-[var(--silk)]'
+              }`}
             >
-              {copied ? '✓ Copied to clipboard' : `Copy: ${profile.email}`}
+              {copied ? '✓ Copied to clipboard' : `${profile.email}`}
             </button>
           </Magnetic>
         </div>
       </div>
 
-      {/* Floating Pill Social Bar like marban */}
-      <div className="pt-20 border-t border-[var(--color)]/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 text-xs font-mono text-[var(--color)]/60">
-        <div className="flex items-center gap-2 p-1.5 rounded-full glass-pill">
+      {/* Footer Social Bar */}
+      <div className="pt-16 border-t border-[var(--color)]/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5 text-[10px] font-mono text-[var(--muted)]">
+        <div className="flex items-center gap-1.5 p-1 rounded-full glass-pill">
           <a
             href={profile.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full hover:bg-[var(--color)] hover:text-[var(--background)] transition-colors"
+            className="px-3.5 py-1.5 rounded-full hover:bg-indigo-600 hover:text-white transition-all duration-200"
           >
-            GitHub
+            GitHub ↗
           </a>
           <a
             href={`mailto:${profile.email}`}
-            className="px-4 py-2 rounded-full hover:bg-[var(--color)] hover:text-[var(--background)] transition-colors"
+            className="px-3.5 py-1.5 rounded-full hover:bg-pink-600 hover:text-white transition-all duration-200"
           >
-            Email
+            Email ↗
           </a>
-          <span className="px-4 py-2 text-[var(--color)]/30">
+          <span className="px-3.5 py-1.5 text-[var(--color)]/15">
             LinkedIn (TODO)
           </span>
         </div>
 
-        <div className="flex items-center gap-4">
-          <span>Phone: {profile.phone}</span>
-          <span>•</span>
-          <span className="text-[var(--silk)]">Chennai, India</span>
+        <div className="flex items-center gap-3">
+          <span>{profile.phone}</span>
+          <span className="text-[var(--color)]/10">•</span>
+          <span className="text-[var(--silk)]/60">Chennai, India</span>
         </div>
       </div>
     </section>

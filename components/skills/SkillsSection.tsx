@@ -1,39 +1,99 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useState, useEffect, useRef, useSyncExternalStore } from 'react';
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+  cubicBezier,
+} from 'motion/react';
 import { skillCategories } from '@/data/skills';
 import { StarIcon } from '@/components/ui/StarIcon';
 
+const marbanEase = cubicBezier(0.645, 0.045, 0.355, 1);
+
+function subscribeMobile(callback: () => void) {
+  window.addEventListener('resize', callback);
+  return () => window.removeEventListener('resize', callback);
+}
+
+function getMobileSnapshot() {
+  return window.innerWidth <= 768;
+}
+
+function getServerMobileSnapshot() {
+  return false;
+}
+
 const metricsPerCategory = [
   {
-    title: 'Languages',
     description:
-      'Core programming foundations spanning systems languages, algorithms, and full-stack development.',
+      'With over 4 years in software and data engineering, I build full-stack architectures and low-latency systems where clean craft meets performance.',
     stats: [
-      { label: 'DSA & Core Languages', value: '7' },
+      { label: 'Core Languages', value: '7+' },
       { label: 'CGPA at SRM IST', value: '8.5' },
     ],
   },
   {
-    title: 'Technologies',
     description:
-      'Big Data analytics pipelines, distributed Delta Lake architectures, machine learning, and computer vision.',
+      'Engineered distributed PySpark ETL pipelines, Delta Lake storage architectures, and high-precision computer vision surveillance models.',
     stats: [
-      { label: 'Records Ingested & Queried', value: '10M+' },
-      { label: 'Facial Recognition Accuracy', value: '95%' },
+      { label: 'Records Processed', value: '10M+' },
+      { label: 'Recognition Accuracy', value: '95%' },
     ],
   },
   {
-    title: 'Tools',
     description:
-      'Professional toolchain for interface design in Figma, version control in Git, and business intelligence dashboards.',
+      'Designing design systems in Figma, collaborating across Git workflows, and turning complex metrics into intuitive interactive interfaces.',
     stats: [
       { label: 'Dynamic Pages Shipped', value: '50+' },
-      { label: 'Usability Tests Run', value: '10+' },
+      { label: 'Usability Tests', value: '10+' },
     ],
   },
 ];
+
+function SkillScrollItem({ skill, index }: { skill: string; index: number }) {
+  const itemRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: itemRef,
+    offset: ['start 92vh', 'end 20vh'],
+  });
+
+  const isMobile = useSyncExternalStore(
+    subscribeMobile,
+    getMobileSnapshot,
+    getServerMobileSnapshot
+  );
+
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [isMobile ? 100 : 300, 0],
+    { ease: marbanEase }
+  );
+
+  const opacity = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0.15, 1]);
+
+  return (
+    <motion.div
+      ref={itemRef}
+      style={{
+        x,
+        opacity,
+        willChange: 'transform, opacity',
+      }}
+      className="group flex items-center justify-between py-2 sm:py-3 w-fit min-w-[240px] sm:min-w-[340px] cursor-default"
+    >
+      <span className="text-2xl sm:text-3xl md:text-3xl xl:text-4xl text-[var(--color)] group-hover:text-[var(--silk)] font-semibold tracking-tight transition-colors duration-200">
+        {skill}
+      </span>
+      <span className="font-mono text-[10px] text-[var(--muted)] opacity-0 group-hover:opacity-100 group-hover:text-[var(--cobalt)] transition-all ml-4">
+        0{index + 1}
+      </span>
+    </motion.div>
+  );
+}
 
 export function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -57,97 +117,94 @@ export function SkillsSection() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const currentMeta = metricsPerCategory[activeCategory] || metricsPerCategory[0];
+  const currentMeta =
+    metricsPerCategory[activeCategory] || metricsPerCategory[0];
 
   return (
     <section id="skills" className="py-28 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row justify-between items-start gap-12 lg:gap-20">
-        {/* Left Sticky Sidebar (Exact marban mechanic) */}
-        <div className="md:sticky md:top-32 w-full md:w-[42%] flex flex-col justify-between md:min-h-[65vh]">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-16">
+        {/* Left Sticky Sidebar (Exactly matching Marban layout) */}
+        <div className="md:sticky md:top-28 w-full md:w-[40%] hidden md:flex justify-between flex-col min-h-[78vh]">
           <div>
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--silk)] font-semibold mb-3">
-              <StarIcon className="text-sm" />
+            <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-[var(--silk)] font-semibold mb-3">
+              <StarIcon className="text-[10px]" />
               <span>Technical Arsenal</span>
             </div>
 
+            <h2 className="text-sm font-mono uppercase tracking-wider text-[var(--muted)] mb-3">
+              Skills Overview
+            </h2>
+
             <AnimatePresence mode="wait">
-              <motion.div
+              <motion.h1
                 key={activeCategory}
-                initial={{ opacity: 0, filter: 'blur(8px)', y: 10 }}
-                animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-                exit={{ opacity: 0, filter: 'blur(8px)', y: -10 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, filter: 'blur(10px)' }}
+                transition={{ duration: 0.5, ease: [0.25, 0.8, 0.25, 1] }}
+                className="font-display inline-block font-bold text-5xl lg:text-6xl text-[var(--color-light)] tracking-tighter"
               >
-                <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-[var(--color-light)] mb-4">
-                  {skillCategories[activeCategory]?.category || 'Skills'}
-                </h2>
-                <p className="font-body text-base sm:text-lg text-[var(--color)]/70 max-w-md leading-relaxed mb-8">
-                  {currentMeta.description}
-                </p>
-              </motion.div>
+                {skillCategories[activeCategory]?.category || 'Skills'}
+              </motion.h1>
             </AnimatePresence>
+
+            <p className="font-body text-sm sm:text-base text-[var(--color)]/50 mt-4 max-w-[420px] leading-relaxed">
+              {currentMeta.description}
+            </p>
           </div>
 
-          {/* Animated Stats / Metrics Block */}
-          <div className="pt-8 border-t border-[var(--color)]/10 grid grid-cols-2 gap-6">
-            {currentMeta.stats.map((stat, i) => (
-              <div key={i} className="flex flex-col">
-                <span className="font-display text-4xl sm:text-5xl font-bold text-[var(--color-light)] tracking-tight">
-                  {stat.value}
-                </span>
-                <span className="text-xs font-mono text-[var(--color)]/50 mt-1">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+          {/* Sticky Metric Counters */}
+          <div className="pt-8 border-t border-[var(--color)]/8">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--muted)] block mb-4">
+              Impact &amp; Benchmarks
+            </span>
+            <div className="grid grid-cols-2 gap-6">
+              {currentMeta.stats.map((stat, i) => (
+                <div key={i} className="flex flex-col">
+                  <span className="font-display text-4xl sm:text-5xl font-bold text-[var(--color-light)] tracking-tight">
+                    {stat.value}
+                  </span>
+                  <span className="text-[10px] font-mono text-[var(--muted)] mt-1">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Vertical Divider line */}
-        <div className="hidden lg:block w-px bg-[var(--color)]/10 self-stretch" />
+        {/* Center Vertical Divider (Sticky, matching Marban) */}
+        <div className="border-l sticky opacity-60 hidden lg:flex border-[var(--color)]/10 h-screen md:top-0" />
 
-        {/* Right Scroll Column where skills scrub into view */}
-        <div className="w-full md:w-[50%] space-y-24 pb-20">
+        {/* Right Scrolling Column with Slide-In Animation */}
+        <div className="w-full md:w-[48%] md:pb-48 space-y-16">
           {skillCategories.map((group, groupIdx) => (
             <div
               key={group.category}
               ref={(el) => {
                 sectionRefs.current[groupIdx] = el;
               }}
-              className="pt-6"
+              className="flex flex-col gap-6 pt-4 pb-12 border-b border-[var(--color)]/8 last:border-0"
             >
-              {/* Mobile Heading */}
-              <div className="md:hidden mb-6 pb-2 border-b border-[var(--color)]/10">
-                <span className="text-xs uppercase text-[var(--silk)] font-mono block">
-                  Category 0{groupIdx + 1}
-                </span>
+              {/* Mobile heading */}
+              <div className="md:hidden block pb-3 border-b border-[var(--color)]/6">
+                <div className="flex items-center gap-2 text-[10px] uppercase text-[var(--silk)] font-mono mb-1">
+                  <StarIcon className="text-[10px]" />
+                  <span>0{groupIdx + 1} / Skills</span>
+                </div>
                 <h3 className="font-display text-3xl font-bold text-[var(--color-light)]">
                   {group.category}
                 </h3>
               </div>
 
-              {/* Skills Items List */}
-              <div className="flex flex-col gap-4">
+              {/* Skill Items with scroll slide-in animation */}
+              <div className="flex flex-col gap-2 md:gap-3">
                 {group.skills.map((skill, skillIdx) => (
-                  <motion.div
+                  <SkillScrollItem
                     key={skill}
-                    initial={{ opacity: 0, x: 25 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-40px' }}
-                    transition={{
-                      duration: 0.4,
-                      delay: skillIdx * 0.04,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                    className="group flex items-center justify-between p-4 sm:p-5 rounded-2xl glass-card hover:border-[var(--silk)]/40 hover:bg-[var(--color)]/5 transition-all duration-200"
-                  >
-                    <span className="font-display text-xl sm:text-2xl font-semibold text-[var(--color)] group-hover:text-[var(--color-light)] group-hover:translate-x-1 transition-all">
-                      {skill}
-                    </span>
-                    <span className="font-mono text-xs text-[var(--color)]/40 group-hover:text-[var(--silk)] transition-colors">
-                      0{skillIdx + 1}
-                    </span>
-                  </motion.div>
+                    skill={skill}
+                    index={skillIdx}
+                  />
                 ))}
               </div>
             </div>

@@ -62,16 +62,16 @@ export function CommandPalette() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[999] flex items-start justify-center pt-24 px-4 bg-black/75 backdrop-blur-md">
+        <div className="fixed inset-0 z-[999] flex items-start justify-center pt-24 px-4 bg-black/80 backdrop-blur-md">
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="w-full max-w-xl rounded-3xl glass-card border border-[var(--color)]/20 shadow-2xl overflow-hidden bg-[var(--background-light)] text-[var(--color)]"
+            className="w-full max-w-xl rounded-3xl glass-card border border-[var(--color)]/10 shadow-2xl shadow-black/90 overflow-hidden bg-[var(--background-light)] text-[var(--color)]"
           >
             {/* Search Input Bar */}
-            <div className="p-4 border-b border-[var(--color)]/10 flex items-center gap-3 bg-[var(--background)]/60">
+            <div className="p-4 border-b border-[var(--color)]/6 flex items-center gap-3 bg-[var(--background)]/70">
               <StarIcon className="text-base text-[var(--silk)]" />
               <input
                 type="text"
@@ -79,9 +79,9 @@ export function CommandPalette() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search projects, sections, or actions..."
-                className="flex-1 bg-transparent border-0 outline-none text-sm text-[var(--color-light)] placeholder-[var(--color)]/40 font-mono"
+                className="flex-1 bg-transparent border-0 outline-none text-sm text-[var(--color-light)] placeholder-[var(--muted)] font-mono"
               />
-              <kbd className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--color)]/10 border border-[var(--color)]/10 text-[var(--color)]/60">
+              <kbd className="px-2 py-0.5 rounded text-[10px] font-mono chip">
                 ESC
               </kbd>
             </div>
@@ -89,7 +89,7 @@ export function CommandPalette() {
             {/* Results List */}
             <div className="max-h-80 overflow-y-auto p-2 space-y-1">
               {filtered.length === 0 ? (
-                <div className="p-6 text-center text-xs font-mono text-[var(--color)]/40">
+                <div className="p-6 text-center text-xs font-mono text-[var(--muted)]">
                   No matching results found for &quot;{query}&quot;.
                 </div>
               ) : (
@@ -97,12 +97,12 @@ export function CommandPalette() {
                   <button
                     key={idx}
                     onClick={() => handleSelect(item.href)}
-                    className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-[var(--color)]/10 hover:text-[var(--color-light)] text-left text-xs transition-colors group"
+                    className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-[var(--color)]/6 hover:text-[var(--color-light)] text-left text-xs transition-colors group"
                   >
                     <span className="font-display font-medium text-sm text-[var(--color)] group-hover:text-[var(--color-light)]">
                       {item.label}
                     </span>
-                    <span className="font-mono text-[10px] px-2 py-0.5 rounded-full bg-[var(--color)]/5 border border-[var(--color)]/10 text-[var(--color)]/50 group-hover:text-[var(--silk)]">
+                    <span className="chip font-mono text-[10px] px-2 py-0.5 rounded-full group-hover:text-[var(--silk)]">
                       {item.badge}
                     </span>
                   </button>
@@ -111,7 +111,7 @@ export function CommandPalette() {
             </div>
 
             {/* Quick Actions Footer */}
-            <div className="p-3 bg-[var(--background)]/80 border-t border-[var(--color)]/10 flex justify-between items-center text-[10px] font-mono text-[var(--color)]/50">
+            <div className="p-3 bg-[var(--background)]/80 border-t border-[var(--color)]/6 flex justify-between items-center text-[10px] font-mono text-[var(--muted)]">
               <div className="flex gap-4">
                 <span>↑↓ Navigate</span>
                 <span>↵ Open</span>

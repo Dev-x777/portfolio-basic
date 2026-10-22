@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { profile } from '@/data/profile';
-import { StarIcon } from '@/components/ui/StarIcon';
 
 interface Message {
   id: string;
@@ -115,18 +114,7 @@ export function AskShruti() {
 
   return (
     <>
-      {/* Floating Trigger Button */}
-      <div className="fixed bottom-6 right-6 z-40">
-        <button
-          onClick={() => setIsOpen((prev) => !prev)}
-          className="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-[var(--color)] text-[var(--background)] hover:bg-[var(--silk)] shadow-2xl transition-all duration-200 text-xs font-bold"
-        >
-          <StarIcon className="text-sm group-hover:rotate-45 transition-transform" />
-          <span>Ask Shruti</span>
-        </button>
-      </div>
-
-      {/* Floating Chat Modal */}
+      {/* Floating Chat Modal (Triggered via Ask AI button in Navbar) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -134,10 +122,10 @@ export function AskShruti() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-20 right-4 sm:right-8 z-50 w-[92vw] sm:w-[420px] max-h-[580px] rounded-3xl glass-card border border-[var(--color)]/20 shadow-2xl overflow-hidden flex flex-col bg-[var(--background-light)]/95 backdrop-blur-xl"
+            className="fixed bottom-20 right-4 sm:right-8 z-50 w-[92vw] sm:w-[420px] max-h-[580px] rounded-3xl glass-card border border-[var(--color)]/10 shadow-2xl shadow-black/80 overflow-hidden flex flex-col bg-[var(--background-light)]/95 backdrop-blur-xl"
           >
             {/* Header */}
-            <div className="p-4 sm:p-5 border-b border-[var(--color)]/10 flex justify-between items-center bg-[var(--background)]/60">
+            <div className="p-4 sm:p-5 border-b border-[var(--color)]/6 flex justify-between items-center bg-[var(--background)]/70">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="font-display font-bold text-sm text-[var(--color-light)]">
@@ -146,7 +134,7 @@ export function AskShruti() {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-[var(--color)]/10 text-xs text-[var(--color)]/60 hover:text-[var(--color)] transition-colors"
+                className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-[var(--color)]/10 text-xs text-[var(--muted)] hover:text-[var(--color)] transition-colors"
               >
                 ✕
               </button>
@@ -164,13 +152,13 @@ export function AskShruti() {
                   <div
                     className={`max-w-[85%] p-3.5 rounded-2xl whitespace-pre-wrap ${
                       m.sender === 'user'
-                        ? 'bg-[var(--color)] text-[var(--background)] font-medium rounded-br-none'
-                        : 'bg-[var(--background)] border border-[var(--color)]/10 text-[var(--color)] rounded-bl-none'
+                        ? 'bg-[var(--silk)]/15 border border-[var(--silk)]/25 text-[var(--color-light)] font-medium rounded-br-none'
+                        : 'bg-[var(--background-card)] border border-[var(--color)]/6 text-[var(--color)] rounded-bl-none'
                     }`}
                   >
                     {m.text}
                     {m.projectLink && (
-                      <div className="mt-2.5 pt-2 border-t border-[var(--color)]/15">
+                      <div className="mt-2.5 pt-2 border-t border-[var(--color)]/10">
                         <a
                           href={m.projectLink}
                           className="font-mono text-xs text-[var(--silk)] underline underline-offset-2 hover:opacity-80 block"
@@ -186,7 +174,7 @@ export function AskShruti() {
             </div>
 
             {/* Quick Prompts */}
-            <div className="px-4 py-2 border-t border-[var(--color)]/10 flex gap-1.5 overflow-x-auto no-scrollbar">
+            <div className="px-4 py-2 border-t border-[var(--color)]/6 flex gap-1.5 overflow-x-auto no-scrollbar">
               {[
                 'Bhagalpur Silk',
                 'FaceTrace AI',
@@ -196,7 +184,7 @@ export function AskShruti() {
                 <button
                   key={chip}
                   onClick={() => handleSend(chip)}
-                  className="px-2.5 py-1 rounded-full bg-[var(--color)]/5 border border-[var(--color)]/10 text-[10px] text-[var(--color)]/70 hover:text-[var(--color)] hover:border-[var(--silk)]/40 whitespace-nowrap transition-colors"
+                  className="px-2.5 py-1 rounded-full chip text-[10px] hover:text-[var(--color-light)] hover:border-[var(--silk)]/30 whitespace-nowrap transition-colors"
                 >
                   {chip}
                 </button>
@@ -204,18 +192,18 @@ export function AskShruti() {
             </div>
 
             {/* Input Bar */}
-            <div className="p-3 border-t border-[var(--color)]/10 bg-[var(--background)]/80 flex items-center gap-2">
+            <div className="p-3 border-t border-[var(--color)]/6 bg-[var(--background)]/80 flex items-center gap-2">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Ask about Shruti's projects, stack..."
-                className="flex-1 bg-transparent border-0 outline-none px-3 py-2 text-xs text-[var(--color)] placeholder-[var(--color)]/40 font-mono"
+                className="flex-1 bg-transparent border-0 outline-none px-3 py-2 text-xs text-[var(--color)] placeholder-[var(--muted)] font-mono"
               />
               <button
                 onClick={() => handleSend()}
-                className="px-3 py-1.5 rounded-xl bg-[var(--color)] text-[var(--background)] text-xs font-bold hover:bg-[var(--silk)] transition-colors"
+                className="px-3.5 py-1.5 rounded-xl btn-primary text-xs font-semibold"
               >
                 Send
               </button>

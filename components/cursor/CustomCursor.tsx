@@ -86,12 +86,12 @@ export function CustomCursor() {
           translateY: '-50%',
         }}
         animate={{
-          scale: isHovered ? 1.7 : 1,
-          opacity: isVisible ? (isHovered ? 0.9 : 0.6) : 0,
-          borderColor: isHovered ? 'var(--silk)' : 'rgba(235, 233, 226, 0.4)',
+          scale: isHovered ? 1.6 : 1,
+          opacity: isVisible ? (isHovered ? 0.9 : 0.5) : 0,
+          borderColor: isHovered ? 'var(--silk)' : 'var(--muted)',
           backgroundColor: isHovered
-            ? 'rgba(255, 179, 209, 0.12)'
-            : 'rgba(255, 255, 255, 0)',
+            ? 'rgba(232, 132, 158, 0.12)'
+            : 'rgba(0, 0, 0, 0)',
         }}
         transition={{ duration: 0.18, ease: 'easeOut' }}
         className="w-9 h-9 rounded-full border border-solid pointer-events-none transition-colors"
@@ -106,7 +106,7 @@ export function CustomCursor() {
           translateY: '-50%',
         }}
         animate={{
-          scale: isHovered ? 1.4 : 1,
+          scale: isHovered ? 1.3 : 1,
           opacity: isVisible ? 1 : 0,
           backgroundColor: isHovered ? 'var(--silk)' : 'var(--color-light)',
         }}

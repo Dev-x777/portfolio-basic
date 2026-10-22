@@ -31,106 +31,107 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-8 py-28 md:py-36 overflow-hidden bg-[var(--background)]">
-      {/* Ambient background glows */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[var(--cobalt)]/12 blur-[140px] rounded-full" />
-        <div className="absolute top-1/2 left-1/3 w-[350px] h-[350px] bg-[var(--silk)]/8 blur-[120px] rounded-full" />
+      {/* Corner ambient accents — positioned at outer edges away from center text */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-[var(--cobalt)]/[0.03] blur-[140px] rounded-full" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[var(--silk)]/[0.03] blur-[140px] rounded-full" />
       </div>
 
-      {/* Architectural framing corners & star */}
       <CornerBrackets />
 
-      {/* Main Hero Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center text-center">
-        {/* Availability pill badge */}
+        {/* Availability pill */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-xs font-medium text-[var(--color)]/80 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-[10px] font-medium text-[var(--muted)] mb-8"
         >
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>Available for UI/UX &amp; Engineering Roles</span>
-          <span className="text-[var(--color)]/30">•</span>
-          <span className="text-[var(--silk)]">Chennai, India</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
+          <span>Available for design &amp; engineering roles</span>
+          <span className="text-[var(--color)]/15">•</span>
+          <span className="text-[var(--silk)]">Chennai</span>
         </motion.div>
 
-        {/* Small Intro Lead */}
+        {/* Intro lead */}
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-base sm:text-lg md:text-xl font-normal text-[var(--color)]/60 mb-3 tracking-wide"
+          className="text-base sm:text-lg md:text-xl font-normal text-[var(--muted)] mb-3 tracking-wide"
         >
           I am {profile.name} and I am a
         </motion.p>
 
-        {/* Giant Monolithic Display Headline */}
+        {/* Modern Aesthetic Bold Headline */}
         <motion.h1
-          initial={{ opacity: 0, scale: 0.96, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-[var(--color-light)] uppercase leading-[0.92] mb-6"
+          className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-extrabold tracking-[-0.05em] text-[var(--color-light)] leading-[0.9] mb-8 select-none"
         >
-          Designer <span className="text-[var(--silk)] font-serif italic font-normal">&amp;</span>
+          <span>Designer</span>{' '}
+          <span className="font-body italic font-normal text-[0.82em] text-[var(--silk)] px-1">
+            &amp;
+          </span>
           <br />
-          Developer<span className="text-[var(--cobalt)]">.</span>
+          <span>Developer</span>
+          <span className="text-[var(--cobalt)]">.</span>
         </motion.h1>
 
-        {/* Core Descriptor (from CONTENT.md) */}
+        {/* Descriptor */}
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="font-body text-xl sm:text-2xl md:text-3xl text-[var(--color)]/80 max-w-2xl leading-relaxed mb-10"
+          className="font-body text-lg sm:text-xl md:text-2xl text-[var(--color)]/60 max-w-xl leading-relaxed mb-12"
         >
           {profile.heroDescriptor}
         </motion.p>
 
-        {/* Action CTAs */}
+        {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-16"
+          className="flex flex-wrap items-center justify-center gap-3 mb-16"
         >
           <Magnetic strength={0.3}>
             <a
               href="#work"
-              className="px-7 py-3.5 rounded-full bg-[var(--color)] text-[var(--background)] font-display text-sm font-semibold tracking-wide hover:bg-[var(--silk)] transition-all duration-200 shadow-md flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full btn-cobalt text-sm font-display font-semibold tracking-wide flex items-center gap-2.5 shadow-lg shadow-blue-600/30 hover:scale-105 transition-all duration-300"
             >
               <span>Selected Work</span>
-              <span>↓</span>
+              <span className="text-xs transition-transform duration-300 group-hover:translate-y-0.5">↓</span>
             </a>
           </Magnetic>
 
           <Magnetic strength={0.3}>
             <a
               href="#contact"
-              className="px-7 py-3.5 rounded-full glass-pill text-[var(--color)] font-display text-sm font-semibold tracking-wide hover:bg-[var(--color)]/10 hover:border-[var(--color)]/40 transition-all duration-200 flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full btn-silk text-sm font-display font-semibold tracking-wide flex items-center gap-2.5 shadow-lg shadow-pink-600/30 hover:scale-105 transition-all duration-300"
             >
               <span>Contact</span>
-              <span>↗</span>
+              <span className="text-xs transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
             </a>
           </Magnetic>
         </motion.div>
 
-        {/* Live Status Bar Footer inside Hero */}
+        {/* Info bar */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="w-full pt-8 border-t border-[var(--color)]/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-[var(--color)]/50"
+          className="w-full pt-6 border-t border-[var(--color)]/6 flex flex-col sm:flex-row justify-between items-center gap-3 text-[10px] font-mono text-[var(--muted)]"
         >
           <div className="flex items-center gap-2">
-            <StarIcon className="text-sm text-[var(--silk)]" />
+            <StarIcon className="text-[10px] text-[var(--silk)]/60" />
             <span>SRM Institute of Science and Technology · CGPA 8.5</span>
           </div>
-
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <span>Big Data Analytics &amp; UI/UX</span>
-            <span>•</span>
-            <span className="text-[var(--color)]/80">
+            <span className="text-[var(--color)]/15">•</span>
+            <span>
               Chennai {time ? `[${time}]` : ''}
             </span>
           </div>

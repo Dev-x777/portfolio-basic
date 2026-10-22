@@ -1,30 +1,60 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0C0C0C;
-  --color-background-light: #171717;
-  --color-background-card: #141414;
-  --color-color: #EBE9E2;
-  --color-color-light: #FBFAF4;
-  --color-cobalt: #2230F5;
-  --color-silk: #FFB3D1;
-  --color-sun: #FFD84A;
-  --color-red: #FF6265;
+  --color-background: var(--background);
+  --color-background-light: var(--background-light);
+  --color-background-card: var(--background-card);
+  --color-color: var(--color);
+  --color-color-light: var(--color-light);
+  --color-cobalt: var(--cobalt);
+  --color-silk: var(--silk);
+  --color-sun: var(--sun);
+  --color-muted: var(--muted);
 
   --font-display: var(--font-bricolage), system-ui, -apple-system, sans-serif;
+  --font-syne: var(--font-syne), var(--font-bricolage), sans-serif;
   --font-body: var(--font-newsreader), Georgia, serif;
 }
 
-:root {
-  --background: #0C0C0C;
-  --background-light: #171717;
-  --background-card: #141414;
-  --color: #EBE9E2;
-  --color-light: #FBFAF4;
-  --cobalt: #2230F5;
-  --silk: #FFB3D1;
+/* Dark Mode Tokens (Default) */
+:root,
+html.dark {
+  --background: #0A0A0A;
+  --background-light: #141414;
+  --background-card: #111111;
+  --color: #D4D1C7;
+  --color-light: #F0EDE5;
+  --cobalt: #3B5BFF;
+  --silk: #FF4D7E;
   --sun: #FFD84A;
-  --red: #FF6265;
+  --muted: #807E76;
+
+  --dot-color: rgba(255, 255, 255, 0.12);
+  --pill-bg: rgba(18, 18, 18, 0.75);
+  --card-bg: rgba(17, 17, 17, 0.9);
+  --chip-bg: rgba(212, 209, 199, 0.04);
+  --border-color: rgba(212, 209, 199, 0.1);
+  --border-subtle: rgba(212, 209, 199, 0.08);
+}
+
+/* Light Mode Tokens (Crisp Studio White Mode) */
+html.light {
+  --background: #F8F9FA;
+  --background-light: #FFFFFF;
+  --background-card: #FFFFFF;
+  --color: #334155;
+  --color-light: #0F172A;
+  --cobalt: #2563EB;
+  --silk: #EC4899;
+  --sun: #D97706;
+  --muted: #64748B;
+
+  --dot-color: rgba(15, 23, 42, 0.08);
+  --pill-bg: rgba(255, 255, 255, 0.95);
+  --card-bg: #FFFFFF;
+  --chip-bg: rgba(15, 23, 42, 0.05);
+  --border-color: rgba(15, 23, 42, 0.12);
+  --border-subtle: rgba(15, 23, 42, 0.09);
 }
 
 /* Custom cursor reset on desktop */
@@ -34,21 +64,23 @@
   }
 }
 
-/* Base body styles */
+/* Base styles */
 html {
   background-color: var(--background);
   color: var(--color);
   font-family: var(--font-display);
-  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 ::-webkit-scrollbar {
   display: none;
-  width: 0px;
+  width: 0;
 }
 
 body {
@@ -56,21 +88,22 @@ body {
   color: var(--color);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Selection */
 ::selection {
-  background-color: var(--silk);
-  color: var(--background);
+  background-color: var(--cobalt);
+  color: #FFFFFF;
 }
 
 /* Focus outline */
 :focus-visible {
-  outline: 2px solid var(--sun);
+  outline: 2px solid var(--cobalt);
   outline-offset: 4px;
 }
 
-/* Typography utilities */
+/* Typography */
 .font-display {
   font-family: var(--font-bricolage), sans-serif;
   letter-spacing: -0.03em;
@@ -80,25 +113,214 @@ body {
   font-family: var(--font-newsreader), Georgia, serif;
 }
 
-/* Noise overlay */
-.bg-noise {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+/* Dotted grid pattern utility */
+.dotted-bg {
+  background-image: radial-gradient(var(--dot-color) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
 }
 
-/* Glass & blur utilities */
+/* Glass & Card Utilities - Dark Mode */
 .glass-pill {
-  background: rgba(23, 23, 23, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(235, 233, 226, 0.12);
+  background: var(--pill-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .glass-card {
-  background: rgba(20, 20, 20, 0.85);
+  background: var(--card-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(235, 233, 226, 0.08);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glass & Card Utilities - Light Mode Refinements */
+html.light .glass-card {
+  background: #FFFFFF !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04) !important;
+}
+
+html.light .glass-card:hover {
+  border-color: rgba(37, 99, 235, 0.35) !important;
+  box-shadow: 0 20px 45px -8px rgba(37, 99, 235, 0.16), 0 4px 12px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light .glass-pill {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light .chip {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #334155 !important;
+}
+
+/* ========================================================
+   REFINED STUDIO BUTTONS (Soft on the eyes, luminous glass)
+   ======================================================== */
+
+/* Cobalt Blue Luminous Glass Pill */
+.btn-cobalt {
+  background: rgba(37, 99, 235, 0.12) !important;
+  border: 1px solid rgba(96, 165, 250, 0.35) !important;
+  color: #93C5FD !important;
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  box-shadow: 0 0 20px -3px rgba(37, 99, 235, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-cobalt:hover {
+  background: rgba(37, 99, 235, 0.24) !important;
+  border-color: rgba(147, 197, 253, 0.6) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 28px -2px rgba(37, 99, 235, 0.45);
+  transform: translateY(-2px) scale(1.02);
+}
+
+html.light .btn-cobalt {
+  background: rgba(37, 99, 235, 0.08) !important;
+  border: 1.5px solid rgba(37, 99, 235, 0.3) !important;
+  color: #1D4ED8 !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+}
+
+html.light .btn-cobalt:hover {
+  background: #2563EB !important;
+  color: #FFFFFF !important;
+  border-color: #2563EB !important;
+  box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.35);
+}
+
+/* Silk Rose Luminous Glass Pill */
+.btn-silk {
+  background: rgba(236, 72, 153, 0.12) !important;
+  border: 1px solid rgba(244, 114, 182, 0.35) !important;
+  color: #FBCFE8 !important;
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  box-shadow: 0 0 20px -3px rgba(236, 72, 153, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-silk:hover {
+  background: rgba(236, 72, 153, 0.24) !important;
+  border-color: rgba(249, 168, 212, 0.6) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 28px -2px rgba(236, 72, 153, 0.45);
+  transform: translateY(-2px) scale(1.02);
+}
+
+html.light .btn-silk {
+  background: rgba(219, 39, 119, 0.08) !important;
+  border: 1.5px solid rgba(219, 39, 119, 0.3) !important;
+  color: #BE185D !important;
+  box-shadow: 0 2px 8px rgba(219, 39, 119, 0.08);
+}
+
+html.light .btn-silk:hover {
+  background: #DB2777 !important;
+  color: #FFFFFF !important;
+  border-color: #DB2777 !important;
+  box-shadow: 0 8px 24px -4px rgba(219, 39, 119, 0.35);
+}
+
+/* Violet Purple Glass Pill */
+.btn-violet {
+  background: rgba(139, 92, 246, 0.12) !important;
+  border: 1px solid rgba(167, 139, 250, 0.35) !important;
+  color: #DDD6FE !important;
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  box-shadow: 0 0 20px -3px rgba(139, 92, 246, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-violet:hover {
+  background: rgba(139, 92, 246, 0.24) !important;
+  border-color: rgba(196, 181, 253, 0.6) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 28px -2px rgba(139, 92, 246, 0.45);
+  transform: translateY(-2px) scale(1.02);
+}
+
+html.light .btn-violet {
+  background: rgba(124, 58, 237, 0.08) !important;
+  border: 1.5px solid rgba(124, 58, 237, 0.3) !important;
+  color: #6D28D9 !important;
+}
+
+html.light .btn-violet:hover {
+  background: #7C3AED !important;
+  color: #FFFFFF !important;
+  border-color: #7C3AED !important;
+  box-shadow: 0 8px 24px -4px rgba(124, 58, 237, 0.35);
+}
+
+/* Emerald Green Glass Pill */
+.btn-emerald {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border: 1px solid rgba(52, 211, 153, 0.35) !important;
+  color: #A7F3D0 !important;
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-emerald:hover {
+  background: rgba(16, 185, 129, 0.24) !important;
+  border-color: rgba(110, 231, 183, 0.6) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 28px -2px rgba(16, 185, 129, 0.45);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Primary Default Button */
+.btn-primary {
+  background: rgba(37, 99, 235, 0.12) !important;
+  border: 1px solid rgba(96, 165, 250, 0.35) !important;
+  color: #93C5FD !important;
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  box-shadow: 0 0 20px -3px rgba(37, 99, 235, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  background: rgba(37, 99, 235, 0.24) !important;
+  border-color: rgba(147, 197, 253, 0.6) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 28px -2px rgba(37, 99, 235, 0.45);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--border-color);
+  color: var(--color);
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--cobalt);
+  color: var(--color-light);
+  background: rgba(37, 99, 235, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Tag/chip pill */
+.chip {
+  background: var(--chip-bg);
+  border: 1px solid var(--border-color);
+  color: var(--color);
+  font-size: 0.7rem;
 }
 
 /* Lenis smooth scroll */
@@ -117,4 +339,13 @@ html.lenis body {
 
 .lenis.lenis-stopped {
   overflow: hidden;
+}
+
+/* No-scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

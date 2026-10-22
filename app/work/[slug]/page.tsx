@@ -28,7 +28,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
       {/* Back button */}
       <Link
         href="/#work"
-        className="inline-flex items-center gap-2 mb-12 px-4 py-2 rounded-full glass-pill text-xs font-mono text-[var(--color)]/70 hover:text-[var(--color)] hover:border-[var(--silk)]/40 transition-colors"
+        className="inline-flex items-center gap-2 mb-12 px-4 py-2 rounded-full glass-pill text-[11px] font-mono text-[var(--muted)] hover:text-[var(--color-light)] hover:border-[var(--silk)]/30 transition-colors"
       >
         <span>←</span>
         <span>Back to selected work</span>
@@ -36,24 +36,24 @@ export default async function WorkDetailPage({ params }: PageProps) {
 
       {/* Header */}
       <header className="mb-16">
-        <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--silk)] font-semibold mb-4">
-          <StarIcon className="text-sm" />
+        <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-[var(--silk)] font-semibold mb-4">
+          <StarIcon className="text-[10px]" />
           <span>Case Study · {project.track}</span>
         </div>
 
-        <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[var(--color-light)] mb-8 leading-[1.05]">
+        <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-[var(--color-light)] mb-6 leading-[1.05]">
           {project.title}
         </h1>
 
-        <p className="font-body text-xl sm:text-2xl text-[var(--color)]/80 max-w-3xl leading-relaxed">
+        <p className="font-body text-lg sm:text-xl text-[var(--color)]/60 max-w-3xl leading-relaxed">
           {project.summary}
         </p>
       </header>
 
       {/* Meta Specs Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 sm:p-8 rounded-3xl glass-card mb-16 border border-[var(--color)]/10">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl glass-card mb-16">
         <div>
-          <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--color)]/40 block mb-1">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--muted)] block mb-1">
             Track
           </span>
           <p className="font-display font-semibold text-sm capitalize text-[var(--silk)]">
@@ -62,7 +62,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
         </div>
 
         <div>
-          <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--color)]/40 block mb-1">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--muted)] block mb-1">
             Technologies
           </span>
           <p className="font-mono text-xs text-[var(--color-light)]">
@@ -71,7 +71,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
         </div>
 
         <div>
-          <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--color)]/40 block mb-1">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--muted)] block mb-1">
             Primary Impact
           </span>
           <p className="font-display font-semibold text-sm text-[var(--color-light)]">
@@ -80,7 +80,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
         </div>
 
         <div>
-          <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--color)]/40 block mb-1">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--muted)] block mb-1">
             Repository
           </span>
           {project.links.github && project.links.github !== 'TODO' ? (
@@ -93,7 +93,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
               View on GitHub ↗
             </a>
           ) : (
-            <span className="text-xs font-mono text-[var(--color)]/40">
+            <span className="text-xs font-mono text-[var(--muted)]">
               GitHub repo TODO
             </span>
           )}
@@ -101,33 +101,33 @@ export default async function WorkDetailPage({ params }: PageProps) {
       </div>
 
       {/* Deep-Dive Content Sections */}
-      <div className="space-y-16">
+      <div className="space-y-8">
         {/* Problem */}
-        <section className="p-8 sm:p-10 rounded-3xl glass-card">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-light)] mb-4">
+        <section className="p-6 sm:p-8 rounded-2xl glass-card">
+          <h2 className="font-display text-xl sm:text-2xl font-bold text-[var(--color-light)] mb-3">
             Context &amp; Challenge
           </h2>
-          <p className="font-body text-lg text-[var(--color)]/80 leading-relaxed">
+          <p className="font-body text-base sm:text-lg text-[var(--color)]/70 leading-relaxed">
             {project.problem}
           </p>
         </section>
 
         {/* Process */}
-        <section className="p-8 sm:p-10 rounded-3xl glass-card">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-light)] mb-4">
+        <section className="p-6 sm:p-8 rounded-2xl glass-card">
+          <h2 className="font-display text-xl sm:text-2xl font-bold text-[var(--color-light)] mb-3">
             Process &amp; Implementation
           </h2>
-          <p className="font-body text-lg text-[var(--color)]/80 leading-relaxed">
+          <p className="font-body text-base sm:text-lg text-[var(--color)]/70 leading-relaxed">
             {project.process}
           </p>
         </section>
 
         {/* Outcome & Metrics */}
-        <section className="p-8 sm:p-10 rounded-3xl glass-card">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-light)] mb-4">
+        <section className="p-6 sm:p-8 rounded-2xl glass-card">
+          <h2 className="font-display text-xl sm:text-2xl font-bold text-[var(--color-light)] mb-3">
             Verified Outcomes &amp; Key Facts
           </h2>
-          <ul className="space-y-3 font-body text-lg text-[var(--color)]/85 list-disc pl-5">
+          <ul className="space-y-2.5 font-body text-base sm:text-lg text-[var(--color)]/75 list-disc pl-5">
             {project.facts.map((fact, idx) => (
               <li key={idx}>{fact}</li>
             ))}

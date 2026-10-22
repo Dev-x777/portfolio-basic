@@ -1,32 +1,34 @@
 # PROGRESS.md
 
-## Phase 0: Foundation
-- **Status**: Completed (Gate Passed)
-- **Completed**:
-  - Scaffolding Next.js App Router (v16 Turbopack), TypeScript, Tailwind CSS (v4), pnpm.
-  - Configured design tokens in CSS variables (`--cobalt`, `--ink`, `--paper`, `--silk`, `--sun`) and Tailwind `@theme`.
-  - Configured variable display font (Bricolage Grotesque with `wght` and `wdth` axes) and serif body font (Newsreader) via `next/font/google`.
-  - Installed and documented core motion libraries (`lenis`, `gsap`, `motion`, `split-type`) in `docs/DECISIONS.md`.
-  - Built `components/providers/SmoothScroll.tsx` syncing Lenis with GSAP ticker, with full reduced-motion safeguards.
-  - Implemented `lib/motion/tokens.ts`, `lib/motion/usePrefersReducedMotion.ts`, `lib/motion/Magnetic.tsx`, and `lib/motion/SplitText.tsx`.
-  - Extracted typed data strictly from `docs/CONTENT.md` into `data/profile.ts`, `data/projects.ts`, `data/experience.ts`, `data/skills.ts`, and `data/achievements.ts`.
-  - Created placeholder components for all Phase 1 workstream paths:
-    - WS A: `components/hero/Hero.tsx`, `components/nav/Navbar.tsx`
-    - WS B: `components/work/WorkSection.tsx`, `app/work/[slug]/page.tsx`
-    - WS C: `components/about/AboutSection.tsx`, `components/experience/ExperienceSection.tsx`, `components/skills/SkillsSection.tsx`, `components/achievements/AchievementsSection.tsx`
-    - WS D: `components/contact/ContactSection.tsx`, `components/footer/Footer.tsx`
-    - WS E: `components/ai/AskShruti.tsx`, `components/command/CommandPalette.tsx`
-  - Wired `app/layout.tsx` and `app/page.tsx` cleanly with zero hardcoded content.
-  - Verified `pnpm lint` (0 errors, 0 warnings).
-  - Verified `pnpm build` (11/11 static pages generated successfully).
-  - Dev server active and responding on `http://localhost:3000`.
-
-## Phase 1: Parallel Workstreams
-- **WS A (Hero + Nav)**: `components/hero/**`, `components/nav/**`
-- **WS B (Work + Case Studies)**: `components/work/**`, `app/work/**`, `data/projects.ts`
-- **WS C (About, Skills, Experience, Achievements)**: `components/about/**`, `components/skills/**`, `components/experience/**`, `components/achievements/**`
-- **WS D (Contact + Footer)**: `components/contact/**`, `components/footer/**`, `app/api/contact/**`
-- **WS E (AI layer + SEO)**: `components/ai/**`, `components/command/**`, `app/api/ask/**`, `public/llms.txt`, `lib/seo.ts`, `app/sitemap.ts`, `app/robots.ts`, OG image route
-
-## Known Issues
-- Antigravity browser driver installation experienced external Azure CDN 404 for Playwright v1.57.0 arm64 driver download; manual or system browser inspection available directly at `http://localhost:3000`.
+## Aesthetic Redesign & Enhancements (marban.is-a.dev inspired)
+- **Status**: Completed & Verified
+- **Light & Dark Mode**:
+  - Built an instant, reactive `ThemeToggle` using `useSyncExternalStore` and direct DOM `classList` toggling.
+  - Light mode overhauled: clean white `#FFFFFF` glass cards with elevation shadows (`box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06)`), high-contrast obsidian headlines (`#0F172A`), readable slate body copy (`#334155`), and crisp borders (`rgba(15, 23, 42, 0.1)`).
+  - Custom cursor, corner brackets, and navbar pills adapt seamlessly between dark obsidian and bright light modes.
+- **Rich Project Card Hover Animations**:
+  - Integrated spring physics hover lift: `whileHover={{ y: -6, scale: 1.008 }}` with spring damping.
+  - Added multi-layer interactive hover responses:
+    - Ambient gradient flare that blooms across the card on hover.
+    - Title smoothly translates right (`translate-x-1.5`) and highlights in silk rose.
+    - Rotating and scaling star sparkle icon in the top right.
+    - Interactive border glow in electric cobalt (`rgba(59, 130, 246, 0.4)`).
+    - Metric highlight boxes lift with subtle background fills.
+    - Arrow in the Case Study CTA animates diagonally (`translate-x-1 -translate-y-1`).
+- **Vibrant Colorful Buttons**:
+  - Added dedicated vibrant button tokens with colored glow shadows:
+    - `.btn-cobalt`: electric blue gradient (`#2563EB` to `#1D4ED8`) with blue ambient glow.
+    - `.btn-silk`: vibrant rose pink gradient (`#EC4899` to `#DB2777`) with pink ambient glow.
+    - `.btn-violet`: violet purple gradient (`#8B5CF6` to `#6D28D9`).
+    - `.btn-emerald`: vibrant green gradient (`#10B981` to `#059669`).
+    - `.btn-amber`: golden amber gradient (`#F59E0B` to `#D97706`).
+  - Applied across Hero CTAs, category filter switcher (each track has its own distinct color), project card CTAs, and Contact actions.
+- **Marban Scroll Tech Stack Animation**:
+  - Smooth horizontal translation (`x: 300px -> 0px` on desktop, `100px -> 0px` on mobile) scrubbed with scroll progress using Marban's exact easing `cubicBezier(0.645, 0.045, 0.355, 1)` and opacity fade-in.
+  - Sticky sidebar with blur-fade category transitions and live counters.
+- **Ask AI Placement**:
+  - Kept prominent "Ask AI" in top navbar, removed floating bottom trigger button to maintain an uncluttered viewport.
+- **Verification**:
+  - `pnpm lint`: Passed (0 errors, 0 warnings).
+  - `pnpm build`: Passed (all 11 routes statically generated).
+  - Dev server active at `http://localhost:3000` (HTTP 200).

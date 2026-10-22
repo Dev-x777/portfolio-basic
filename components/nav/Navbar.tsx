@@ -3,13 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { StarIcon } from '@/components/ui/StarIcon';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
-interface NavbarProps {
-  onOpenChat?: () => void;
-  onOpenCommand?: () => void;
-}
-
-export function Navbar({ onOpenChat, onOpenCommand }: NavbarProps) {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
@@ -36,27 +32,27 @@ export function Navbar({ onOpenChat, onOpenCommand }: NavbarProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-5 transition-all duration-300 pointer-events-none flex justify-center ${
-        scrolled ? 'translate-y-0' : 'translate-y-0'
+      className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-5 transition-all duration-500 pointer-events-none flex justify-center ${
+        scrolled ? 'pt-3 pb-3 backdrop-blur-sm' : ''
       }`}
     >
       <div className="w-full max-w-6xl flex justify-between items-center">
-        {/* Brand Logo */}
+        {/* Brand - Slightly Bigger */}
         <Link
           href="/"
-          className="pointer-events-auto group flex items-center gap-2 px-3 py-1.5 rounded-full glass-pill hover:border-[var(--silk)]/40 transition-colors"
+          className="pointer-events-auto group flex items-center gap-2.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full glass-pill hover:border-[var(--silk)]/40 transition-all duration-300"
         >
-          <span className="font-display text-base font-bold tracking-tight text-[var(--color)]">
+          <span className="font-display text-base sm:text-lg font-bold tracking-tight text-[var(--color-light)]">
             [shruti<span className="text-[var(--silk)]">.</span>]
           </span>
-          <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[var(--color)]/60 border-l border-[var(--color)]/15 pl-2 ml-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[var(--muted)] border-l border-[var(--color)]/10 pl-2.5 ml-0.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>Open to roles</span>
           </span>
         </Link>
 
-        {/* Center Navigation Pill */}
-        <nav className="pointer-events-auto hidden md:flex items-center gap-1 p-1 rounded-full glass-pill text-xs font-medium text-[var(--color)]/70">
+        {/* Center Nav - Bigger Pill and Comfortable Touch Targets */}
+        <nav className="pointer-events-auto hidden md:flex items-center gap-1 p-1.5 rounded-full glass-pill text-xs sm:text-[13px] font-medium text-[var(--muted)]">
           {[
             { id: 'work', label: 'Work' },
             { id: 'skills', label: 'Skills' },
@@ -67,10 +63,10 @@ export function Navbar({ onOpenChat, onOpenCommand }: NavbarProps) {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`px-3.5 py-1.5 rounded-full transition-all duration-200 hover:text-[var(--color-light)] hover:bg-[var(--color)]/10 ${
+              className={`px-4 py-2 rounded-full transition-all duration-200 ${
                 activeSection === item.id
-                  ? 'text-[var(--background)] bg-[var(--color)] font-semibold shadow-xs'
-                  : ''
+                  ? 'text-[var(--color-light)] bg-[var(--color)]/10 font-semibold border border-[var(--border-color)]'
+                  : 'hover:text-[var(--color-light)] hover:bg-[var(--color)]/5'
               }`}
             >
               {item.label}
@@ -78,33 +74,27 @@ export function Navbar({ onOpenChat, onOpenCommand }: NavbarProps) {
           ))}
         </nav>
 
-        {/* Action Controls */}
-        <div className="pointer-events-auto flex items-center gap-2">
+        {/* Right Actions - Comfortably Sized */}
+        <div className="pointer-events-auto flex items-center gap-2.5">
+          <ThemeToggle />
+
           <button
             onClick={() => {
-              if (onOpenCommand) {
-                onOpenCommand();
-              } else {
-                window.dispatchEvent(
-                  new KeyboardEvent('keydown', { key: 'k', metaKey: true })
-                );
-              }
+              window.dispatchEvent(
+                new KeyboardEvent('keydown', { key: 'k', metaKey: true })
+              );
             }}
-            className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full glass-pill text-xs text-[var(--color)]/70 hover:text-[var(--color)] hover:border-[var(--color)]/30 transition-colors"
-            title="Search or jump to section (Cmd+K)"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-full glass-pill text-xs font-mono text-[var(--muted)] hover:text-[var(--color-light)] hover:border-[var(--cobalt)]/40 transition-all duration-200 cursor-pointer"
+            title="Search (Cmd+K)"
           >
-            <span>Cmd+K</span>
+            <span>⌘K</span>
           </button>
 
           <button
             onClick={() => {
-              if (onOpenChat) {
-                onOpenChat();
-              } else {
-                window.dispatchEvent(new CustomEvent('toggle-ask-shruti'));
-              }
+              window.dispatchEvent(new CustomEvent('toggle-ask-shruti'));
             }}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[var(--color)] text-[var(--background)] hover:bg-[var(--silk)] text-xs font-semibold transition-all duration-200 shadow-sm hover:scale-105 active:scale-95"
+            className="flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full btn-silk text-xs sm:text-sm font-semibold cursor-pointer"
           >
             <StarIcon className="text-xs" />
             <span>Ask AI</span>
