@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cobalt: #2230F5;
+  --color-ink: #0D0F1A;
+  --color-paper: #F4F5F9;
+  --color-silk: #FFB3D1;
+  --color-sun: #FFD84A;
+
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-body: var(--font-newsreader), Georgia, serif;
+}
+
+:root {
+  --cobalt: #2230F5;
+  --ink: #0D0F1A;
+  --paper: #F4F5F9;
+  --silk: #FFB3D1;
+  --sun: #FFD84A;
+}
+
+/* Accessibility: Visible keyboard focus ring */
+:focus-visible {
+  outline: 2px solid var(--sun);
+  outline-offset: 3px;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--silk);
+  color: var(--ink);
+}
+
+/* Base resets & typography baseline */
+html {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-newsreader), Georgia, serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lenis smooth scroll recommended baseline styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Utility classes for display text */
+.font-display {
+  font-family: var(--font-bricolage), sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+
+.font-body {
+  font-family: var(--font-newsreader), Georgia, serif;
+  line-height: 1.6;
+}
