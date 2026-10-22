@@ -68,7 +68,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-extrabold tracking-[-0.05em] text-[var(--color-light)] leading-[0.9] mb-8 select-none"
+          className="font-[family-name:var(--font-syne)] text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-extrabold tracking-[-0.04em] text-[var(--color-light)] leading-[0.9] mb-8 select-none"
         >
           <span>Designer</span>{' '}
           <span className="font-body italic font-normal text-[0.82em] text-[var(--silk)] px-1">
@@ -89,17 +89,17 @@ export function Hero() {
           {profile.heroDescriptor}
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons - Soft on eyes, premium studio finish */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-16"
+          className="flex flex-wrap items-center justify-center gap-3.5 mb-16"
         >
           <Magnetic strength={0.3}>
             <a
               href="#work"
-              className="px-7 py-3.5 rounded-full btn-cobalt text-sm font-display font-semibold tracking-wide flex items-center gap-2.5 shadow-lg shadow-blue-600/30 hover:scale-105 transition-all duration-300"
+              className="px-8 py-3.5 rounded-full btn-primary text-sm font-display font-semibold tracking-wide flex items-center gap-2.5 transition-all duration-300"
             >
               <span>Selected Work</span>
               <span className="text-xs transition-transform duration-300 group-hover:translate-y-0.5">↓</span>
@@ -109,7 +109,7 @@ export function Hero() {
           <Magnetic strength={0.3}>
             <a
               href="#contact"
-              className="px-7 py-3.5 rounded-full btn-silk text-sm font-display font-semibold tracking-wide flex items-center gap-2.5 shadow-lg shadow-pink-600/30 hover:scale-105 transition-all duration-300"
+              className="px-8 py-3.5 rounded-full btn-secondary text-sm font-display font-semibold tracking-wide flex items-center gap-2.5 transition-all duration-300"
             >
               <span>Contact</span>
               <span className="text-xs transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>

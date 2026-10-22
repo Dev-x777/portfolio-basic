@@ -48,7 +48,7 @@ export function ContactSection() {
           <Magnetic strength={0.3}>
             <a
               href={`mailto:${profile.email}`}
-              className="px-7 py-3.5 rounded-full btn-cobalt text-sm font-display font-bold flex items-center gap-2.5 shadow-lg shadow-blue-600/30 hover:scale-105 transition-all duration-300"
+              className="px-8 py-3.5 rounded-full btn-primary text-sm font-display font-bold flex items-center gap-2.5 transition-all duration-300"
             >
               <span>Send an Email</span>
               <span className="text-xs transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
@@ -58,10 +58,10 @@ export function ContactSection() {
           <Magnetic strength={0.25}>
             <button
               onClick={handleCopyEmail}
-              className={`px-5 py-3.5 rounded-full text-[11px] font-mono transition-all duration-300 hover:scale-105 ${
+              className={`px-6 py-3.5 rounded-full text-xs font-mono transition-all duration-300 hover:scale-105 ${
                 copied
                   ? 'bg-emerald-500 text-white font-semibold shadow-md shadow-emerald-500/40'
-                  : 'btn-outline hover:border-[var(--silk)]/60 hover:text-[var(--silk)]'
+                  : 'btn-secondary hover:border-[var(--silk)]/60'
               }`}
             >
               {copied ? '✓ Copied to clipboard' : `${profile.email}`}

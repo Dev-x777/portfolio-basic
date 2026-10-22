@@ -161,142 +161,167 @@ html.light .chip {
 }
 
 /* ========================================================
-   REFINED STUDIO BUTTONS (Soft on the eyes, luminous glass)
+   REFINED STUDIO BUTTONS (Soft on the eyes, zero glare)
    ======================================================== */
 
-/* Cobalt Blue Luminous Glass Pill */
-.btn-cobalt {
-  background: rgba(37, 99, 235, 0.12) !important;
-  border: 1px solid rgba(96, 165, 250, 0.35) !important;
-  color: #93C5FD !important;
-  backdrop-filter: blur(12px);
-  font-weight: 600;
-  box-shadow: 0 0 20px -3px rgba(37, 99, 235, 0.2);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-cobalt:hover {
-  background: rgba(37, 99, 235, 0.24) !important;
-  border-color: rgba(147, 197, 253, 0.6) !important;
-  color: #FFFFFF !important;
-  box-shadow: 0 0 28px -2px rgba(37, 99, 235, 0.45);
-  transform: translateY(-2px) scale(1.02);
-}
-
-html.light .btn-cobalt {
-  background: rgba(37, 99, 235, 0.08) !important;
-  border: 1.5px solid rgba(37, 99, 235, 0.3) !important;
-  color: #1D4ED8 !important;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
-}
-
-html.light .btn-cobalt:hover {
-  background: #2563EB !important;
-  color: #FFFFFF !important;
-  border-color: #2563EB !important;
-  box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.35);
-}
-
-/* Silk Rose Luminous Glass Pill */
-.btn-silk {
-  background: rgba(236, 72, 153, 0.12) !important;
-  border: 1px solid rgba(244, 114, 182, 0.35) !important;
-  color: #FBCFE8 !important;
-  backdrop-filter: blur(12px);
-  font-weight: 600;
-  box-shadow: 0 0 20px -3px rgba(236, 72, 153, 0.2);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-silk:hover {
-  background: rgba(236, 72, 153, 0.24) !important;
-  border-color: rgba(249, 168, 212, 0.6) !important;
-  color: #FFFFFF !important;
-  box-shadow: 0 0 28px -2px rgba(236, 72, 153, 0.45);
-  transform: translateY(-2px) scale(1.02);
-}
-
-html.light .btn-silk {
-  background: rgba(219, 39, 119, 0.08) !important;
-  border: 1.5px solid rgba(219, 39, 119, 0.3) !important;
-  color: #BE185D !important;
-  box-shadow: 0 2px 8px rgba(219, 39, 119, 0.08);
-}
-
-html.light .btn-silk:hover {
-  background: #DB2777 !important;
-  color: #FFFFFF !important;
-  border-color: #DB2777 !important;
-  box-shadow: 0 8px 24px -4px rgba(219, 39, 119, 0.35);
-}
-
-/* Violet Purple Glass Pill */
-.btn-violet {
-  background: rgba(139, 92, 246, 0.12) !important;
-  border: 1px solid rgba(167, 139, 250, 0.35) !important;
-  color: #DDD6FE !important;
-  backdrop-filter: blur(12px);
-  font-weight: 600;
-  box-shadow: 0 0 20px -3px rgba(139, 92, 246, 0.2);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-violet:hover {
-  background: rgba(139, 92, 246, 0.24) !important;
-  border-color: rgba(196, 181, 253, 0.6) !important;
-  color: #FFFFFF !important;
-  box-shadow: 0 0 28px -2px rgba(139, 92, 246, 0.45);
-  transform: translateY(-2px) scale(1.02);
-}
-
-html.light .btn-violet {
-  background: rgba(124, 58, 237, 0.08) !important;
-  border: 1.5px solid rgba(124, 58, 237, 0.3) !important;
-  color: #6D28D9 !important;
-}
-
-html.light .btn-violet:hover {
-  background: #7C3AED !important;
-  color: #FFFFFF !important;
-  border-color: #7C3AED !important;
-  box-shadow: 0 8px 24px -4px rgba(124, 58, 237, 0.35);
-}
-
-/* Emerald Green Glass Pill */
-.btn-emerald {
-  background: rgba(16, 185, 129, 0.12) !important;
-  border: 1px solid rgba(52, 211, 153, 0.35) !important;
-  color: #A7F3D0 !important;
-  backdrop-filter: blur(12px);
-  font-weight: 600;
-  box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.2);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-emerald:hover {
-  background: rgba(16, 185, 129, 0.24) !important;
-  border-color: rgba(110, 231, 183, 0.6) !important;
-  color: #FFFFFF !important;
-  box-shadow: 0 0 28px -2px rgba(16, 185, 129, 0.45);
-  transform: translateY(-2px) scale(1.02);
-}
-
-/* Primary Default Button */
+/* Primary Flagship Button (Crisp Monochrome, Timeless, Zero Eye Strain) */
 .btn-primary {
-  background: rgba(37, 99, 235, 0.12) !important;
-  border: 1px solid rgba(96, 165, 250, 0.35) !important;
-  color: #93C5FD !important;
-  backdrop-filter: blur(12px);
+  background: #F4F4F5 !important;
+  color: #0A0A0A !important;
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
   font-weight: 600;
-  box-shadow: 0 0 20px -3px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
-  background: rgba(37, 99, 235, 0.24) !important;
-  border-color: rgba(147, 197, 253, 0.6) !important;
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px -2px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+html.light .btn-primary {
+  background: #0F172A !important;
   color: #FFFFFF !important;
-  box-shadow: 0 0 28px -2px rgba(37, 99, 235, 0.45);
+  border: 1px solid #0F172A !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15) !important;
+}
+
+html.light .btn-primary:hover {
+  background: #1E293B !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px -2px rgba(15, 23, 42, 0.25) !important;
+}
+
+/* Secondary Button (Frosted Glass Pill) */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: var(--color-light) !important;
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.25) !important;
+}
+
+html.light .btn-secondary {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border: 1.5px solid rgba(15, 23, 42, 0.12) !important;
+  color: #0F172A !important;
+}
+
+html.light .btn-secondary:hover {
+  background: rgba(15, 23, 42, 0.08) !important;
+  border-color: rgba(15, 23, 42, 0.25) !important;
+  box-shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Cobalt Blue Soft Frosted Pill (Gentle, No heavy glow) */
+.btn-cobalt {
+  background: rgba(59, 130, 246, 0.09) !important;
+  border: 1px solid rgba(147, 197, 253, 0.25) !important;
+  color: #93C5FD !important;
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-cobalt:hover {
+  background: rgba(59, 130, 246, 0.18) !important;
+  border-color: rgba(147, 197, 253, 0.5) !important;
+  color: #BFDBFE !important;
+  transform: translateY(-2px) scale(1.02);
+}
+
+html.light .btn-cobalt {
+  background: rgba(37, 99, 235, 0.06) !important;
+  border: 1.5px solid rgba(37, 99, 235, 0.25) !important;
+  color: #1D4ED8 !important;
+}
+
+html.light .btn-cobalt:hover {
+  background: rgba(37, 99, 235, 0.12) !important;
+  border-color: rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Silk Rose Soft Frosted Pill */
+.btn-silk {
+  background: rgba(244, 114, 182, 0.09) !important;
+  border: 1px solid rgba(244, 114, 182, 0.25) !important;
+  color: #FBCFE8 !important;
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-silk:hover {
+  background: rgba(244, 114, 182, 0.18) !important;
+  border-color: rgba(244, 114, 182, 0.5) !important;
+  color: #FDF2F8 !important;
+  transform: translateY(-2px) scale(1.02);
+}
+
+html.light .btn-silk {
+  background: rgba(219, 39, 119, 0.06) !important;
+  border: 1.5px solid rgba(219, 39, 119, 0.25) !important;
+  color: #BE185D !important;
+}
+
+html.light .btn-silk:hover {
+  background: rgba(219, 39, 119, 0.12) !important;
+  border-color: rgba(219, 39, 119, 0.4) !important;
+}
+
+/* Violet Purple Soft Frosted Pill */
+.btn-violet {
+  background: rgba(139, 92, 246, 0.09) !important;
+  border: 1px solid rgba(167, 139, 250, 0.25) !important;
+  color: #DDD6FE !important;
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-violet:hover {
+  background: rgba(139, 92, 246, 0.18) !important;
+  border-color: rgba(196, 181, 253, 0.5) !important;
+  color: #EDE9FE !important;
+  transform: translateY(-2px) scale(1.02);
+}
+
+html.light .btn-violet {
+  background: rgba(124, 58, 237, 0.06) !important;
+  border: 1.5px solid rgba(124, 58, 237, 0.25) !important;
+  color: #6D28D9 !important;
+}
+
+html.light .btn-violet:hover {
+  background: rgba(124, 58, 237, 0.12) !important;
+  border-color: rgba(124, 58, 237, 0.4) !important;
+}
+
+/* Emerald Green Soft Frosted Pill */
+.btn-emerald {
+  background: rgba(16, 185, 129, 0.09) !important;
+  border: 1px solid rgba(52, 211, 153, 0.25) !important;
+  color: #A7F3D0 !important;
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-emerald:hover {
+  background: rgba(16, 185, 129, 0.18) !important;
+  border-color: rgba(110, 231, 183, 0.5) !important;
+  color: #ECFDF5 !important;
   transform: translateY(-2px) scale(1.02);
 }
 

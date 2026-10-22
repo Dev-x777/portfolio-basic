@@ -15,19 +15,28 @@
     - Interactive border glow in electric cobalt (`rgba(59, 130, 246, 0.4)`).
     - Metric highlight boxes lift with subtle background fills.
     - Arrow in the Case Study CTA animates diagonally (`translate-x-1 -translate-y-1`).
-- **Vibrant Colorful Buttons**:
-  - Added dedicated vibrant button tokens with colored glow shadows:
-    - `.btn-cobalt`: electric blue gradient (`#2563EB` to `#1D4ED8`) with blue ambient glow.
-    - `.btn-silk`: vibrant rose pink gradient (`#EC4899` to `#DB2777`) with pink ambient glow.
-    - `.btn-violet`: violet purple gradient (`#8B5CF6` to `#6D28D9`).
-    - `.btn-emerald`: vibrant green gradient (`#10B981` to `#059669`).
-    - `.btn-amber`: golden amber gradient (`#F59E0B` to `#D97706`).
-  - Applied across Hero CTAs, category filter switcher (each track has its own distinct color), project card CTAs, and Contact actions.
+- **Eye-Friendly Studio Button Redesign**:
+  - Replaced heavy saturated colored buttons and glaring box-shadows with refined, eye-friendly studio button tokens:
+    - `.btn-primary`: Crisp high-contrast monochrome studio pill (#F4F4F5 on dark mode, #0F172A on light mode) with subtle inset bevel.
+    - `.btn-secondary`: Translucent frosted glass pill with hairline border and zero glare.
+    - `.btn-cobalt`, `.btn-silk`, `.btn-violet`, `.btn-emerald`: Whisper-soft frosted glass pills with low-saturation tint and zero heavy neon halo.
+  - Eliminated colored drop-shadow blobs from Hero and Contact CTAs.
+- **Modern Aesthetic Bold Headline Typography**:
+  - Integrated `Syne` (Google Font, weights 700 & 800) for the "Designer & Developer." headline.
+  - Razor-sharp geometric curves, tight tracking (`tracking-[-0.04em]`), and elegant Newsreader italic ampersand.
+- **Enlarged Studio Navbar**:
+  - Scaled up navbar padding (`py-6 px-4 sm:px-10`), brand logo size, center navigation links (`px-5 py-2 text-sm`), and Ask AI button (`btn-secondary` frosted pill with pulsating silk star).
+  - More generous clearance, tactile touch targets, and balanced proportions.
+- **Architectural Full-Bleed Dotted Grid Background**:
+  - Continuous full-page architectural dotted grid (`.dotted-bg`, 24px x 24px) spanning the entire viewport on scroll.
+  - Dynamic opacity tokens matching dark (`rgba(255, 255, 255, 0.12)`) and light (`rgba(15, 23, 42, 0.12)`) modes.
 - **Marban Scroll Tech Stack Animation**:
   - Smooth horizontal translation (`x: 300px -> 0px` on desktop, `100px -> 0px` on mobile) scrubbed with scroll progress using Marban's exact easing `cubicBezier(0.645, 0.045, 0.355, 1)` and opacity fade-in.
   - Sticky sidebar with blur-fade category transitions and live counters.
 - **Ask AI Placement**:
   - Kept prominent "Ask AI" in top navbar, removed floating bottom trigger button to maintain an uncluttered viewport.
+- **Git Repository & Remote**:
+  - Pushed to `https://github.com/Shrutiraj22/portfolio_updated.git` (branch `main`).
 - **Verification**:
   - `pnpm lint`: Passed (0 errors, 0 warnings).
   - `pnpm build`: Passed (all 11 routes statically generated).
