@@ -6,6 +6,7 @@ import { Navbar } from '@/components/nav/Navbar';
 import { Footer } from '@/components/footer/Footer';
 import { AskShruti } from '@/components/ai/AskShruti';
 import { CommandPalette } from '@/components/command/CommandPalette';
+import { CustomCursor } from '@/components/cursor/CustomCursor';
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -35,12 +36,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${newsreader.variable}`}
+      className={`${bricolage.variable} ${newsreader.variable} dark`}
     >
-      <body className="min-h-screen bg-[var(--paper)] text-[var(--ink)] antialiased font-body selection:bg-[var(--silk)] selection:text-[var(--ink)]">
+      <body className="min-h-screen bg-[var(--background)] text-[var(--color)] antialiased font-display selection:bg-[var(--silk)] selection:text-[var(--background)] relative">
+        <CustomCursor />
         <SmoothScroll>
           <Navbar />
-          <main>{children}</main>
+          <main className="relative z-10">{children}</main>
           <Footer />
           <AskShruti />
           <CommandPalette />

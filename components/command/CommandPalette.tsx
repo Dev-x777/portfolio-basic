@@ -1,9 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { motion, AnimatePresence } from 'motion/react';
+import { projects } from '@/data/projects';
+import { profile } from '@/data/profile';
+import { StarIcon } from '@/components/ui/StarIcon';
 
 export function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -20,24 +27,108 @@ export function CommandPalette() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  if (!isOpen) return null;
+  const sections = [
+    { label: 'Selected Work', href: '/#work', badge: 'Section' },
+    { label: 'Skills & Arsenal', href: '/#skills', badge: 'Section' },
+    { label: 'Experience Timeline', href: '/#experience', badge: 'Section' },
+    { label: 'About & Honors', href: '/#about', badge: 'Section' },
+    { label: 'Contact', href: '/#contact', badge: 'Section' },
+  ];
+
+  const projectItems = projects.map((p) => ({
+    label: p.title,
+    href: `/work/${p.slug}`,
+    badge: p.track.toUpperCase(),
+  }));
+
+  const allItems = [...sections, ...projectItems];
+
+  const filtered = query
+    ? allItems.filter((item) =>
+        item.label.toLowerCase().includes(query.toLowerCase())
+      )
+    : allItems;
+
+  const handleSelect = (href: string) => {
+    setIsOpen(false);
+    setQuery('');
+    if (href.startsWith('http')) {
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
+  };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
-      <div className="bg-[var(--paper)] text-[var(--ink)] w-full max-w-lg rounded-xl shadow-2xl border border-[var(--ink)]/15 overflow-hidden">
-        <div className="p-4 border-b border-[var(--ink)]/10 flex items-center gap-3">
-          <input
-            type="text"
-            placeholder="Type a command or jump to section..."
-            className="w-full bg-transparent outline-none text-base font-body text-[var(--ink)]"
-            autoFocus
-          />
-          <kbd className="text-xs px-2 py-1 bg-[var(--ink)]/10 rounded">ESC</kbd>
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-[999] flex items-start justify-center pt-24 px-4 bg-black/75 backdrop-blur-md">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="w-full max-w-xl rounded-3xl glass-card border border-[var(--color)]/20 shadow-2xl overflow-hidden bg-[var(--background-light)] text-[var(--color)]"
+          >
+            {/* Search Input Bar */}
+            <div className="p-4 border-b border-[var(--color)]/10 flex items-center gap-3 bg-[var(--background)]/60">
+              <StarIcon className="text-base text-[var(--silk)]" />
+              <input
+                type="text"
+                autoFocus
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search projects, sections, or actions..."
+                className="flex-1 bg-transparent border-0 outline-none text-sm text-[var(--color-light)] placeholder-[var(--color)]/40 font-mono"
+              />
+              <kbd className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--color)]/10 border border-[var(--color)]/10 text-[var(--color)]/60">
+                ESC
+              </kbd>
+            </div>
+
+            {/* Results List */}
+            <div className="max-h-80 overflow-y-auto p-2 space-y-1">
+              {filtered.length === 0 ? (
+                <div className="p-6 text-center text-xs font-mono text-[var(--color)]/40">
+                  No matching results found for &quot;{query}&quot;.
+                </div>
+              ) : (
+                filtered.map((item, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleSelect(item.href)}
+                    className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-[var(--color)]/10 hover:text-[var(--color-light)] text-left text-xs transition-colors group"
+                  >
+                    <span className="font-display font-medium text-sm text-[var(--color)] group-hover:text-[var(--color-light)]">
+                      {item.label}
+                    </span>
+                    <span className="font-mono text-[10px] px-2 py-0.5 rounded-full bg-[var(--color)]/5 border border-[var(--color)]/10 text-[var(--color)]/50 group-hover:text-[var(--silk)]">
+                      {item.badge}
+                    </span>
+                  </button>
+                ))
+              )}
+            </div>
+
+            {/* Quick Actions Footer */}
+            <div className="p-3 bg-[var(--background)]/80 border-t border-[var(--color)]/10 flex justify-between items-center text-[10px] font-mono text-[var(--color)]/50">
+              <div className="flex gap-4">
+                <span>↑↓ Navigate</span>
+                <span>↵ Open</span>
+              </div>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(profile.email);
+                  setIsOpen(false);
+                }}
+                className="hover:text-[var(--silk)] underline underline-offset-2"
+              >
+                Copy Email
+              </button>
+            </div>
+          </motion.div>
         </div>
-        <div className="p-4 text-xs text-[var(--ink)]/60">
-          Command palette initialized for WS E.
-        </div>
-      </div>
-    </div>
+      )}
+    </AnimatePresence>
   );
 }

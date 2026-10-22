@@ -1,46 +1,107 @@
 @import "tailwindcss";
 
 @theme {
+  --color-background: #0C0C0C;
+  --color-background-light: #171717;
+  --color-background-card: #141414;
+  --color-color: #EBE9E2;
+  --color-color-light: #FBFAF4;
   --color-cobalt: #2230F5;
-  --color-ink: #0D0F1A;
-  --color-paper: #F4F5F9;
   --color-silk: #FFB3D1;
   --color-sun: #FFD84A;
+  --color-red: #FF6265;
 
-  --font-display: var(--font-bricolage), sans-serif;
+  --font-display: var(--font-bricolage), system-ui, -apple-system, sans-serif;
   --font-body: var(--font-newsreader), Georgia, serif;
 }
 
 :root {
+  --background: #0C0C0C;
+  --background-light: #171717;
+  --background-card: #141414;
+  --color: #EBE9E2;
+  --color-light: #FBFAF4;
   --cobalt: #2230F5;
-  --ink: #0D0F1A;
-  --paper: #F4F5F9;
   --silk: #FFB3D1;
   --sun: #FFD84A;
+  --red: #FF6265;
 }
 
-/* Accessibility: Visible keyboard focus ring */
-:focus-visible {
-  outline: 2px solid var(--sun);
-  outline-offset: 3px;
+/* Custom cursor reset on desktop */
+@media (pointer: fine) {
+  body, button, a, input, textarea {
+    cursor: none !important;
+  }
 }
 
-/* Selection color */
-::selection {
-  background-color: var(--silk);
-  color: var(--ink);
-}
-
-/* Base resets & typography baseline */
+/* Base body styles */
 html {
-  background-color: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-newsreader), Georgia, serif;
+  background-color: var(--background);
+  color: var(--color);
+  font-family: var(--font-display);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* Lenis smooth scroll recommended baseline styles */
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--color);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--silk);
+  color: var(--background);
+}
+
+/* Focus outline */
+:focus-visible {
+  outline: 2px solid var(--sun);
+  outline-offset: 4px;
+}
+
+/* Typography utilities */
+.font-display {
+  font-family: var(--font-bricolage), sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.font-body {
+  font-family: var(--font-newsreader), Georgia, serif;
+}
+
+/* Noise overlay */
+.bg-noise {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glass & blur utilities */
+.glass-pill {
+  background: rgba(23, 23, 23, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(235, 233, 226, 0.12);
+}
+
+.glass-card {
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(235, 233, 226, 0.08);
+}
+
+/* Lenis smooth scroll */
 html.lenis,
 html.lenis body {
   height: auto;
@@ -56,20 +117,4 @@ html.lenis body {
 
 .lenis.lenis-stopped {
   overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-
-/* Utility classes for display text */
-.font-display {
-  font-family: var(--font-bricolage), sans-serif;
-  letter-spacing: -0.03em;
-  line-height: 0.9;
-}
-
-.font-body {
-  font-family: var(--font-newsreader), Georgia, serif;
-  line-height: 1.6;
 }

@@ -1,31 +1,28 @@
 'use client';
 
+import React from 'react';
 import { profile } from '@/data/profile';
+import { StarIcon } from '@/components/ui/StarIcon';
 
 export function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="py-12 px-6 md:px-12 bg-[var(--ink)] text-[var(--paper)] text-sm border-t border-[var(--paper)]/10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <div>
-          <span>© 2026 {profile.name}. All rights reserved.</span>
-        </div>
-        <div className="flex gap-6">
-          <a
-            href={profile.links.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[var(--silk)] transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href={`mailto:${profile.email}`}
-            className="hover:text-[var(--silk)] transition-colors"
-          >
-            Email
-          </a>
-        </div>
+    <footer className="py-8 px-6 sm:px-12 md:px-20 border-t border-[var(--color)]/10 text-xs font-mono text-[var(--color)]/40 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div className="flex items-center gap-2">
+        <StarIcon className="text-xs text-[var(--silk)]" />
+        <span>© 2026 {profile.name} · Designed &amp; engineered with care.</span>
       </div>
+
+      <button
+        onClick={scrollToTop}
+        className="hover:text-[var(--color)] transition-colors flex items-center gap-1.5"
+      >
+        <span>Back to top</span>
+        <span>↑</span>
+      </button>
     </footer>
   );
 }
