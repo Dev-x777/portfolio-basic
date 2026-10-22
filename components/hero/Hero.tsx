@@ -36,8 +36,8 @@ export function Hero() {
         <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[var(--silk)]/[0.03] blur-[140px] rounded-full" />
       </div>
 
-      {/* Architectural Studio Boundary Frame */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto rounded-[2rem] border border-[var(--color)]/12 bg-[var(--background-card)]/40 backdrop-blur-[10px] p-6 sm:p-12 md:p-16 lg:p-20 overflow-hidden shadow-2xl">
+      {/* Architectural Studio Hero Section (Blending completely into background) */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto p-4 sm:p-8 md:p-12">
         {/* Abstract Background Geometry (Concentric Elliptical Orbits & Ambient Glows) */}
         <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
           {/* Luminous dual aura flares */}
@@ -69,34 +69,34 @@ export function Hero() {
           </svg>
         </div>
 
-        {/* 4 Architectural Precision Corner Brackets & Technical Markers */}
+        {/* Architectural Curved Corner Borders (Blending seamlessly) */}
         {/* Top-Left Corner */}
-        <div className="pointer-events-none absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2">
-          <div className="w-4 h-4 sm:w-5 sm:h-5 border-t-2 border-l-2 border-[var(--color)]/30 rounded-tl" />
-          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/60 hidden sm:inline">[01 // HERO]</span>
+        <div className="pointer-events-none absolute top-0 left-0 sm:top-1 sm:left-1 flex items-center gap-2">
+          <div className="w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-[var(--color)]/30 rounded-tl-xl" />
+          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/50 hidden sm:inline">[01 // HERO]</span>
         </div>
 
         {/* Top-Right Corner */}
-        <div className="pointer-events-none absolute top-4 right-4 sm:top-6 sm:right-6 flex items-center gap-2">
-          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/60 hidden sm:inline">[SYS // 2026]</span>
-          <div className="w-4 h-4 sm:w-5 sm:h-5 border-t-2 border-r-2 border-[var(--color)]/30 rounded-tr" />
+        <div className="pointer-events-none absolute top-0 right-0 sm:top-1 sm:right-1 flex items-center gap-2">
+          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/50 hidden sm:inline">[SYS // 2026]</span>
+          <div className="w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-r-2 border-[var(--color)]/30 rounded-tr-xl" />
         </div>
 
         {/* Bottom-Left Corner */}
-        <div className="pointer-events-none absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex items-center gap-2">
-          <div className="w-4 h-4 sm:w-5 sm:h-5 border-b-2 border-l-2 border-[var(--color)]/30 rounded-bl" />
-          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/60 hidden sm:inline">[CRAFT × DATA]</span>
+        <div className="pointer-events-none absolute bottom-0 left-0 sm:bottom-1 sm:left-1 flex items-center gap-2">
+          <div className="w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-l-2 border-[var(--color)]/30 rounded-bl-xl" />
+          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/50 hidden sm:inline">[CRAFT × DATA]</span>
         </div>
 
         {/* Bottom-Right Corner with Abstract Rotating Star */}
-        <div className="pointer-events-none absolute bottom-4 right-4 sm:bottom-6 sm:right-6 flex items-center gap-2">
+        <div className="pointer-events-none absolute bottom-0 right-0 sm:bottom-1 sm:right-1 flex items-center gap-2">
           <motion.div
             animate={{ rotate: [0, 90, 180, 270, 360], scale: [1, 1.15, 1] }}
             transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
           >
             <StarIcon className="text-xs text-[var(--silk)]/70" />
           </motion.div>
-          <div className="w-4 h-4 sm:w-5 sm:h-5 border-b-2 border-r-2 border-[var(--color)]/30 rounded-br" />
+          <div className="w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 border-[var(--color)]/30 rounded-br-xl" />
         </div>
 
         {/* Floating Abstract Ambient Star Accents */}
