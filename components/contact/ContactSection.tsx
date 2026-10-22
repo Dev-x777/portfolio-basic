@@ -48,7 +48,7 @@ export function ContactSection() {
           <Magnetic strength={0.3}>
             <a
               href={`mailto:${profile.email}`}
-              className="px-8 py-3.5 rounded-full btn-primary text-sm font-display font-bold flex items-center gap-2.5 transition-all duration-300"
+              className="px-8 py-3.5 rounded-full btn-silk text-sm font-display font-bold flex items-center gap-2.5 transition-all duration-300"
             >
               <span>Send an Email</span>
               <span className="text-xs transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>

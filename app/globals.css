@@ -58,7 +58,12 @@ html.light {
 
 /* Custom cursor reset on desktop */
 @media (pointer: fine) {
-  body, button, a, input, textarea {
+
+  body,
+  button,
+  a,
+  input,
+  textarea {
     cursor: none !important;
   }
 }
@@ -223,60 +228,64 @@ html.light .btn-secondary:hover {
   box-shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.1) !important;
 }
 
-/* Cobalt Blue Soft Frosted Pill (Gentle, No heavy glow) */
+/* Cobalt Blue Button */
 .btn-cobalt {
-  background: rgba(59, 130, 246, 0.09) !important;
-  border: 1px solid rgba(147, 197, 253, 0.25) !important;
-  color: #93C5FD !important;
-  backdrop-filter: blur(12px);
+  background: #2563EB !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
   font-weight: 600;
+  box-shadow: 0 4px 18px -2px rgba(37, 99, 235, 0.45);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-cobalt:hover {
-  background: rgba(59, 130, 246, 0.18) !important;
-  border-color: rgba(147, 197, 253, 0.5) !important;
-  color: #BFDBFE !important;
+  background: #1D4ED8 !important;
+  color: #FFFFFF !important;
   transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 24px -2px rgba(37, 99, 235, 0.65);
 }
 
 html.light .btn-cobalt {
-  background: rgba(37, 99, 235, 0.06) !important;
-  border: 1.5px solid rgba(37, 99, 235, 0.25) !important;
-  color: #1D4ED8 !important;
+  background: #2563EB !important;
+  color: #FFFFFF !important;
+  border: 1px solid #1D4ED8 !important;
+  box-shadow: 0 4px 14px -2px rgba(37, 99, 235, 0.35);
 }
 
 html.light .btn-cobalt:hover {
-  background: rgba(37, 99, 235, 0.12) !important;
-  border-color: rgba(37, 99, 235, 0.4) !important;
+  background: #1D4ED8 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px -2px rgba(37, 99, 235, 0.5);
 }
 
-/* Silk Rose Soft Frosted Pill */
+/* Silk Rose Vibrant Button (The Signature Pink Button) */
 .btn-silk {
-  background: rgba(244, 114, 182, 0.09) !important;
-  border: 1px solid rgba(244, 114, 182, 0.25) !important;
-  color: #FBCFE8 !important;
-  backdrop-filter: blur(12px);
+  background: #EC4899 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
   font-weight: 600;
+  box-shadow: 0 4px 18px -2px rgba(236, 72, 153, 0.45);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-silk:hover {
-  background: rgba(244, 114, 182, 0.18) !important;
-  border-color: rgba(244, 114, 182, 0.5) !important;
-  color: #FDF2F8 !important;
+  background: #DB2777 !important;
+  color: #FFFFFF !important;
   transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 24px -2px rgba(236, 72, 153, 0.65);
 }
 
 html.light .btn-silk {
-  background: rgba(219, 39, 119, 0.06) !important;
-  border: 1.5px solid rgba(219, 39, 119, 0.25) !important;
-  color: #BE185D !important;
+  background: #DB2777 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #BE185D !important;
+  box-shadow: 0 4px 14px -2px rgba(219, 39, 119, 0.35);
 }
 
 html.light .btn-silk:hover {
-  background: rgba(219, 39, 119, 0.12) !important;
-  border-color: rgba(219, 39, 119, 0.4) !important;
+  background: #BE185D !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px -2px rgba(219, 39, 119, 0.5);
 }
 
 /* Violet Purple Soft Frosted Pill */
@@ -369,6 +378,7 @@ html.lenis body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

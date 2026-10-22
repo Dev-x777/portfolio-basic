@@ -94,9 +94,9 @@ export function Navbar() {
             onClick={() => {
               window.dispatchEvent(new CustomEvent('toggle-ask-shruti'));
             }}
-            className="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full btn-secondary text-xs sm:text-sm font-semibold cursor-pointer shadow-sm hover:border-[var(--silk)]/50"
+            className="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full btn-silk text-xs sm:text-sm font-semibold cursor-pointer shadow-sm hover:scale-105 transition-all duration-200"
           >
-            <StarIcon className="text-xs text-[var(--silk)]" />
+            <StarIcon className="text-xs text-white" />
             <span>Ask AI</span>
           </button>
         </div>

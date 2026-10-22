@@ -12,7 +12,7 @@ const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-bricolage',
   display: 'swap',
-  axes: ['wdth'],
+  axes: ['wdth', 'opsz'],
 });
 
 const newsreader = Newsreader({
