@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Bricolage_Grotesque, Newsreader, Syne } from 'next/font/google';
+import { Bricolage_Grotesque, Newsreader } from 'next/font/google';
 import './globals.css';
 import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { Navbar } from '@/components/nav/Navbar';
@@ -13,13 +13,6 @@ const bricolage = Bricolage_Grotesque({
   variable: '--font-bricolage',
   display: 'swap',
   axes: ['wdth'],
-});
-
-const syne = Syne({
-  subsets: ['latin'],
-  variable: '--font-syne',
-  display: 'swap',
-  weight: ['700', '800'],
 });
 
 const newsreader = Newsreader({
@@ -43,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${syne.variable} ${newsreader.variable} dark`}
+      className={`${bricolage.variable} ${newsreader.variable} dark`}
       suppressHydrationWarning
     >
       <head>

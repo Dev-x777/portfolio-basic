@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { profile } from '@/data/profile';
-import { CornerBrackets } from '@/components/ui/CornerBrackets';
 import { StarIcon } from '@/components/ui/StarIcon';
 import { Magnetic } from '@/lib/motion';
 
@@ -37,8 +36,6 @@ export function Hero() {
         <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[var(--silk)]/[0.03] blur-[140px] rounded-full" />
       </div>
 
-      <CornerBrackets />
-
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center text-center">
         {/* Availability pill */}
         <motion.div
@@ -63,20 +60,16 @@ export function Hero() {
           I am {profile.name} and I am a
         </motion.p>
 
-        {/* Modern Aesthetic Bold Headline */}
+        {/* Giant Monolithic Display Headline (Original font) */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="font-[family-name:var(--font-syne)] text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-extrabold tracking-[-0.04em] text-[var(--color-light)] leading-[0.9] mb-8 select-none"
+          className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-[var(--color-light)] uppercase leading-[0.92] mb-6 select-none"
         >
-          <span>Designer</span>{' '}
-          <span className="font-body italic font-normal text-[0.82em] text-[var(--silk)] px-1">
-            &amp;
-          </span>
+          Designer <span className="text-[var(--silk)] font-serif italic font-normal">&amp;</span>
           <br />
-          <span>Developer</span>
-          <span className="text-[var(--cobalt)]">.</span>
+          Developer<span className="text-[var(--cobalt)]">.</span>
         </motion.h1>
 
         {/* Descriptor */}

@@ -12,7 +12,6 @@
   --color-muted: var(--muted);
 
   --font-display: var(--font-bricolage), system-ui, -apple-system, sans-serif;
-  --font-syne: var(--font-syne), var(--font-bricolage), sans-serif;
   --font-body: var(--font-newsreader), Georgia, serif;
 }
 
