@@ -1,4 +1,4 @@
-export type ProjectTrack = 'design' | 'engineering';
+export type ProjectTrack = 'backend' | 'product';
 
 export interface ProjectLinks {
   github?: string;
@@ -19,159 +19,214 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // Design Track
+  // Backend Track
   {
-    slug: 'bhagalpur-silk',
-    title: 'Bhagalpur Silk e-commerce redesign',
-    track: 'design',
-    stack: ['Figma', 'UX research'],
+    slug: 'rateguard',
+    title: 'RateGuard – Distributed Rate Limiting Service',
+    track: 'backend',
+    stack: ['Spring Boot', 'Redis Lua', 'PostgreSQL', 'Docker', 'React'],
     facts: [
-      'bounce rate -25%',
-      'mobile conversion +18%',
-      'team of 3',
-      'May-Jul 2024',
+      'Token Bucket & Sliding Window algorithms',
+      'sub-5ms latency across 3 instances',
+      '0 race conditions over 10K+ load tests',
+      '0 limit breaches on 500+ concurrent connections',
     ],
     links: {
-      github: 'TODO',
-      live: 'TODO',
+      github: 'https://github.com/Dev-x777/Rate_Limiter_As_A_Service',
     },
     summary:
-      'UX research and redesign of the e-commerce platform for Bhagalpur Silk, driving down bounce rates while boosting mobile conversions.',
-    problem: 'TODO: confirm with Shruti',
+      'Distributed rate limiting microservice architecture enforcing multi-tier limits at sub-5ms latency with atomic Redis Lua scripts.',
+    problem:
+      'High-throughput microservices require resilient, low-latency distributed rate limiters to protect upstream APIs from abuse without introducing latency bottlenecks.',
     process:
-      'UX research and redesign of the e-commerce platform; responsive wireframes in Figma; worked with cross-functional team of 3 for consistency across devices; delivered final UI assets and handoff documentation.',
+      'Implemented Token Bucket and Sliding Window algorithms with atomic Redis Lua scripts across 3 instances, enforcing 3-tier limits (100/1K/10K req/min); built a React dashboard with live WebSocket traffic graphs and PostgreSQL counter recovery on Redis restarts.',
     outcome:
-      'Bounce rate dropped by 25% and mobile conversion increased by 18%.',
+      'Validated 0 limit breaches and 0 race conditions across 10K+ load-tested requests at sub-5ms response latency.',
   },
   {
-    slug: 'team-aaruush',
-    title: 'Team Aaruush tech fest website',
-    track: 'design',
-    stack: ['Figma', 'web dev'],
+    slug: 'distributed-scheduler',
+    title: 'Distributed Job Scheduler & Queue Engine',
+    track: 'backend',
+    stack: ['TypeScript', 'Node.js', 'Redis', 'Docker', 'Worker Queues'],
     facts: [
-      '50+ pages',
-      'engagement +30%',
-      'team of 4',
-      '10+ usability tests',
+      'Fault-tolerant worker orchestration',
+      'Heartbeat health monitoring',
+      'Exponential backoff job retries',
+      'Sub-millisecond queue dispatching',
     ],
     links: {
-      github: 'TODO',
-      live: 'TODO',
+      github: 'https://github.com/Dev-x777/Distributed-Job-Scheduler',
     },
     summary:
-      'Designed and built the official tech fest website spanning 50+ dynamic pages with consistent branding and elevated user engagement.',
-    problem: 'TODO: confirm with Shruti',
+      'High-throughput distributed task queue and worker coordination engine designed for fault-tolerant asynchronous job scheduling.',
+    problem:
+      'Large backend architectures require reliable decoupled execution of heavy asynchronous jobs with guaranteed delivery and zero duplicate processing.',
     process:
-      'Designed and built the official tech fest website (50+ dynamic pages); led team of 4 to keep branding and UI consistent; ran 10+ usability tests and iterated on student feedback.',
+      'Engineered a distributed master-worker scheduling engine utilizing Redis pub/sub and atomic keys; implemented worker heartbeat detection, exponential backoff retries, and task deduplication queues.',
     outcome:
-      '50+ dynamic pages delivered on schedule; user engagement rose by 30%.',
+      'Engineered fault-tolerant job dispatching capable of orchestrating concurrent asynchronous tasks across multiple distributed worker nodes with zero message drops.',
+  },
+  {
+    slug: 'message-cache',
+    title: 'High-Throughput Message Caching System',
+    track: 'backend',
+    stack: ['Node.js', 'In-Memory Cache', 'Redis', 'Concurrency'],
+    facts: [
+      'Sub-millisecond read/write latency',
+      'LRU eviction with TTL expiration',
+      'Thread-safe atomic operations',
+      'High concurrency throughput',
+    ],
+    links: {
+      github: 'https://github.com/Dev-x777/message-cache-system',
+    },
+    summary:
+      'Ultra-fast in-memory caching and queuing service optimizing high-throughput message persistence and instant retrieval.',
+    problem:
+      'Direct database writes during traffic spikes degrade response times and threaten downstream service availability.',
+    process:
+      'Built a low-latency caching layer featuring Least Recently Used (LRU) memory eviction, sliding window TTL expiration, and atomic lock-free reads.',
+    outcome:
+      'Reduced database read pressure by caching hot messages with sub-millisecond retrieval speeds under high concurrent connection loads.',
+  },
+  {
+    slug: 'lakeflow-pipeline',
+    title: 'Lakeflow Databricks Data Pipeline',
+    track: 'backend',
+    stack: ['Python', 'Apache Spark', 'Databricks', 'Delta Lake'],
+    facts: [
+      'Automated ETL ingestion pipelines',
+      'Delta Lake ACID transaction guarantees',
+      'Automated data quality verification',
+      'Scalable batch & stream architecture',
+    ],
+    links: {
+      github: 'https://github.com/Dev-x777/lakeflow-databricks-pipeline',
+    },
+    summary:
+      'Scalable cloud data engineering pipeline on Databricks executing automated data ingestion, transformation, and medallion storage.',
+    problem:
+      'Processing massive raw logs into analytics-ready structured tables requires robust schema validation and ACID guarantees.',
+    process:
+      'Constructed a multi-stage medallion data architecture on Databricks utilizing Delta Lake and Apache Spark; incorporated automated schema validation and anomaly filtering.',
+    outcome:
+      'Delivered automated data pipelines converting disparate streaming and batch logs into reliable, analytics-ready Delta Lake datasets.',
   },
 
-  // Engineering Track
+  // Product Track
   {
-    slug: 'cyber-threat-dashboard',
-    title: 'Cyber Threat Intelligence Dashboard (Feb 2025)',
-    track: 'engineering',
-    stack: ['PySpark', 'Elasticsearch', 'Streamlit'],
+    slug: 'autisense',
+    title: 'AutiSense – Autism Screening Platform',
+    track: 'product',
+    stack: ['Dart', 'Flutter', 'React JS', 'Flask', 'TensorFlow', 'PostgreSQL'],
     facts: [
-      'pipeline for 10K+ cyber log entries',
-      'anomaly detection with Apache Spark',
-      'real-time dashboard',
-      '100% uptime',
+      'Pre-autism screening for ages 2–6',
+      'CNN on 5,000+ labeled samples',
+      '86%+ classification accuracy',
+      'sub-200ms REST inference latency',
     ],
     links: {
-      github: 'TODO',
+      github: 'https://github.com/Dev-x777/AutiSense',
     },
     summary:
-      'End-to-end data pipeline and real-time visualization dashboard analyzing 10K+ cyber log entries with automated anomaly detection.',
-    problem: 'TODO: confirm with Shruti',
+      'Comprehensive pre-autism screening product for kids aged 2–6 pairing deep CNN computer vision with clinician dashboards.',
+    problem:
+      'Early detection of childhood developmental conditions is often hindered by long clinical waitlists and inaccessible computational tools.',
     process:
-      'Engineered an ingestion and processing pipeline for 10K+ cyber log entries; implemented anomaly detection with Apache Spark; connected real-time visualization dashboard via Streamlit and Elasticsearch.',
+      'Trained a convolutional neural network on 5,000+ behavioral and facial image samples achieving 86%+ classification accuracy; served predictions via Flask REST API with sub-200ms latency; built mobile and web clinician interfaces backed by PostgreSQL.',
     outcome:
-      'Maintained 100% uptime during monitoring with instant anomaly detection across 10K+ log entries.',
+      'Delivered an accessible screening tool with 86%+ diagnostic accuracy and real-time clinical reporting across 100+ patient records.',
   },
   {
-    slug: 'facetrace',
-    title: 'FaceTrace, smart surveillance system (Apr 2025)',
-    track: 'engineering',
-    stack: ['OpenCV', 'DeepFace'],
+    slug: 'rehearse',
+    title: 'ReHearse – Sheet Music to Playable Audio',
+    track: 'product',
+    stack: ['Python', 'Audiveris', 'Azure', 'Docker', 'UIKit', 'AVFoundation'],
     facts: [
-      'facial recognition 95% accuracy across 100+ CCTV frames',
-      'real-time alerts under 2 s latency',
+      'Live App Store product',
+      '90%+ OMR sheet accuracy',
+      '100+ active musicians',
+      '25% reduction in learning curve',
     ],
     links: {
-      github: 'https://github.com/Shrutiraj22/FaceTrace',
+      github: 'https://github.com/Dev-x777/re-hearse-v1',
     },
     summary:
-      'Smart surveillance solution providing high-accuracy facial recognition across CCTV footage with sub-2-second automated alerts.',
-    problem: 'TODO: confirm with Shruti',
+      'Interactive music product converting scanned sheet music into real-time playable audio with step-by-step practice tutorials.',
+    problem:
+      'Beginner musicians struggle to translate complex sheet music notation into accurate pitch and tempo without audio playback.',
     process:
-      'Constructed facial recognition system using OpenCV and DeepFace; evaluated across 100+ CCTV frames; wired real-time alerting mechanisms.',
+      'Architected Optical Music Recognition pipeline using Python and Audiveris containerized on Azure with Docker; developed native playback engine with AVFoundation, animated note tutorials, and interactive practice feedback.',
     outcome:
-      'Achieved 95% recognition accuracy across 100+ CCTV frames with real-time alerting latency under 2 seconds.',
+      'Published on the App Store with 100+ active users; cut beginner learning time by 25% and boosted practice engagement by 35%.',
   },
   {
-    slug: 'custom-data-warehouse',
-    title: 'Custom Data Warehouse (Nov 2024)',
-    track: 'engineering',
-    stack: ['Apache Spark', 'Delta Lake'],
+    slug: 'tripsync',
+    title: 'TripSync – Collaborative Travel Platform',
+    track: 'product',
+    stack: ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
     facts: [
-      'medallion architecture',
-      'query time -40% on healthcare dataset of 10M+ records',
-      'scalable ETL with automated data quality validation',
+      'Real-time collaborative planning',
+      'Integrated itinerary sync',
+      'Smart group expense tracking',
+      'Interactive map & timeline views',
     ],
     links: {
-      github: 'TODO',
+      github: 'https://github.com/Dev-x777/TripSync',
     },
     summary:
-      'Medallion architecture data warehouse processing 10M+ healthcare records with automated data quality validation and 40% faster queries.',
-    problem: 'TODO: confirm with Shruti',
+      'Full-stack collaborative travel platform enabling groups to plan itineraries, split shared expenses, and synchronize schedules in real time.',
+    problem:
+      'Planning group trips across messy chat threads and spreadsheets leads to conflicting schedules, lost reservations, and friction.',
     process:
-      'Designed multi-tier medallion architecture ETL pipelines; incorporated automated data quality checks and validation rules; optimized queries on Delta Lake with Apache Spark.',
+      'Designed and engineered full-stack web product in React and Node.js; implemented real-time itinerary synchronization, interactive day-by-day timelines, and an automated expense reconciliation engine.',
     outcome:
-      'Cut query execution time by 40% on a massive healthcare dataset containing 10M+ records.',
+      'Delivered a unified travel product turning chaotic group travel coordination into an intuitive, real-time shared workspace.',
   },
   {
-    slug: 'sentiguard',
-    title: 'SentiGuard, toxic comment filter (Mar 2024)',
-    track: 'engineering',
-    stack: ['Python', 'NLP', 'ML'],
+    slug: 'replymate',
+    title: 'ReplyMate – Intelligent Response Assistant',
+    track: 'product',
+    stack: ['JavaScript', 'Browser Extension', 'LLM API', 'React'],
     facts: [
-      '88% accuracy on 20K+ comments',
-      'logistic regression classifier',
-      'real-time moderation under 300 ms',
+      '16 GitHub Stars community acclaim',
+      'Context-aware message drafting',
+      '1-click tone customization',
+      'Zero-friction browser integration',
     ],
     links: {
-      github: 'TODO',
+      github: 'https://github.com/Dev-x777/ReplyMate',
     },
     summary:
-      'Machine learning moderation system classifying toxic comments with 88% accuracy and rapid sub-300ms evaluation times.',
-    problem: 'TODO: confirm with Shruti',
+      'AI-powered productivity extension generating contextual, intelligent draft responses for communications in one click.',
+    problem:
+      'Repetitive professional communication takes hours of manual effort, drafting similar responses across emails and messaging platforms.',
     process:
-      'Preprocessed NLP text corpus of 20K+ comments; trained and evaluated a logistic regression classification model; wrapped inference in a fast real-time scoring endpoint.',
+      'Built a lightweight browser extension that analyzes conversation context and prompts generative AI models to compose tailored drafts in professional, friendly, or concise tones.',
     outcome:
-      'Achieved 88% accuracy on 20K+ test comments with live moderation response time under 300 ms.',
+      'Gained 16 GitHub stars and positive developer adoption, drastically reducing message drafting time.',
   },
   {
-    slug: 'taskflow',
-    title: 'TaskFlow productivity app (Jan 2024)',
-    track: 'engineering',
-    stack: ['React', 'Node.js'],
+    slug: 'fms',
+    title: 'Fleet Management System (FMS)',
+    track: 'product',
+    stack: ['Swift', 'UIKit', 'REST APIs', 'Agile / Jira'],
     facts: [
-      'Kanban-style task manager',
-      'JWT login',
-      'multi-user',
-      'analytics dashboard tracking 5+ metrics across 50+ daily tasks',
+      '100+ vehicle fleet management',
+      '40+ sprint user stories delivered',
+      '30–35% reduction in manual overhead',
+      '10-member Agile engineering team',
     ],
     links: {
-      github: 'TODO',
+      github: 'https://github.com/Dev-x777/FMS',
     },
     summary:
-      'Multi-user Kanban productivity platform featuring JWT authentication and an interactive metrics analytics dashboard.',
-    problem: 'TODO: confirm with Shruti',
+      'Enterprise fleet management system streamlining vehicle service scheduling, defect tracking, and historical audit logs.',
+    problem:
+      'Manual paper logs delayed maintenance schedules and caused costly vehicle downtime across commercial fleet operations.',
     process:
-      'Built a full-stack Kanban task manager with React frontend and Node.js backend; implemented secure JWT-based authentication; engineered an analytics dashboard tracking productivity metrics.',
+      'Led client-side module engineering in Swift; built vehicle service scheduling, defect triage, and audit history screens; collaborated across two-week Agile sprints using Jira.',
     outcome:
-      'Delivered seamless multi-user collaboration tracking 5+ metrics across 50+ daily tasks.',
+      'Shipped 40+ user stories, managing 100+ commercial vehicles and cutting manual maintenance tracking overhead by 30–35%.',
   },
 ];

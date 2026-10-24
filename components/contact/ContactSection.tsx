@@ -40,7 +40,7 @@ export function ContactSection() {
         </motion.h2>
 
         <p className="font-body text-lg sm:text-xl text-[var(--color)]/50 max-w-lg leading-relaxed mb-10">
-          Open to design engineering roles, full-stack systems, and data analytics challenges.
+          Open to product engineering, distributed backend systems, and full-stack software development roles.
         </p>
 
         {/* CTA Buttons */}
@@ -82,20 +82,33 @@ export function ContactSection() {
             GitHub ↗
           </a>
           <a
+            href={profile.links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3.5 py-1.5 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-200"
+          >
+            LinkedIn ↗
+          </a>
+          <a
+            href={profile.links.leetcode}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3.5 py-1.5 rounded-full hover:bg-amber-600 hover:text-white transition-all duration-200"
+          >
+            LeetCode ↗
+          </a>
+          <a
             href={`mailto:${profile.email}`}
             className="px-3.5 py-1.5 rounded-full hover:bg-pink-600 hover:text-white transition-all duration-200"
           >
             Email ↗
           </a>
-          <span className="px-3.5 py-1.5 text-[var(--color)]/15">
-            LinkedIn (TODO)
-          </span>
         </div>
 
         <div className="flex items-center gap-3">
           <span>{profile.phone}</span>
           <span className="text-[var(--color)]/10">•</span>
-          <span className="text-[var(--silk)]/60">Chennai, India</span>
+          <span className="text-[var(--silk)]/60">{profile.location}</span>
         </div>
       </div>
     </section>

@@ -11,4 +11,5 @@ This file tracks every dependency and major architectural decision with rational
 - `gsap`: Scroll-driven timelines and ScrollTrigger for the pinned stacking work section.
 - `motion`: Modern framer-motion successor for interaction motion, route transitions, and layout animations.
 - `split-type`: Text split utility for the hero name assembly and typography animations.
+- `@hugeicons/react`, `@hugeicons/core-free-icons`: Icons for the React Bits <ReflectiveCard /> component.
 - `prettier`: Code formatting and consistency.

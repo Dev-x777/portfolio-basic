@@ -4,9 +4,10 @@ import './globals.css';
 import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { Navbar } from '@/components/nav/Navbar';
 import { Footer } from '@/components/footer/Footer';
-import { AskShruti } from '@/components/ai/AskShruti';
+import { AskDev } from '@/components/ai/AskDev';
 import { CommandPalette } from '@/components/command/CommandPalette';
-import { CustomCursor } from '@/components/cursor/CustomCursor';
+import { SmoothCursor } from '@/components/ui/smooth-cursor';
+import { BackgroundGrainient } from '@/components/ui/BackgroundGrainient';
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -23,9 +24,9 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: 'Shruti Raj — Designer & Developer',
+  title: 'Devjeet Saha — Product & Backend Engineer',
   description:
-    'Portfolio of Shruti Raj. Designer and developer specializing in UI/UX, full-stack, and big data engineering.',
+    'Portfolio of Devjeet Saha (Dev). Product and backend engineer specializing in distributed systems, scalable microservices, and high-impact products.',
 };
 
 export default function RootLayout({
@@ -37,6 +38,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${bricolage.variable} ${newsreader.variable} dark`}
+      data-theme="dark"
       suppressHydrationWarning
     >
       <head>
@@ -49,9 +51,11 @@ export default function RootLayout({
                   if (saved === 'light') {
                     document.documentElement.classList.remove('dark');
                     document.documentElement.classList.add('light');
+                    document.documentElement.setAttribute('data-theme', 'light');
                   } else {
                     document.documentElement.classList.add('dark');
                     document.documentElement.classList.remove('light');
+                    document.documentElement.setAttribute('data-theme', 'dark');
                   }
                 } catch(e) {}
               })();
@@ -60,16 +64,18 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[var(--background)] text-[var(--color)] antialiased font-display selection:bg-[var(--silk)] selection:text-white relative">
+        {/* Dynamic WebGL Grainient Fluid Background */}
+        <BackgroundGrainient />
         {/* Full-bleed Architectural Dotted Background Grid */}
         <div className="pointer-events-none fixed inset-0 z-0 dotted-bg" />
-        <CustomCursor />
         <SmoothScroll>
           <Navbar />
           <main className="relative z-10">{children}</main>
           <Footer />
-          <AskShruti />
+          <AskDev />
           <CommandPalette />
         </SmoothScroll>
+        <SmoothCursor />
       </body>
     </html>
   );

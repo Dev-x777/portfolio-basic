@@ -29,7 +29,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-8 py-28 md:py-36 overflow-hidden bg-[var(--background)]">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-8 py-28 md:py-36 overflow-hidden bg-transparent">
       {/* Corner ambient accents — positioned at outer edges away from center text */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-[var(--cobalt)]/[0.03] blur-[140px] rounded-full" />
@@ -41,20 +41,20 @@ export function Hero() {
         {/* Abstract Background Geometry (Concentric Elliptical Orbits & Ambient Glows) */}
         <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
           {/* Luminous dual aura flares */}
-          <div className="absolute -top-24 left-1/4 w-80 h-80 bg-[var(--cobalt)]/[0.08] blur-[120px] rounded-full" />
-          <div className="absolute -bottom-24 right-1/4 w-80 h-80 bg-[var(--silk)]/[0.08] blur-[120px] rounded-full" />
+          <div className="absolute -top-24 left-1/4 w-80 h-80 bg-[var(--cobalt)]/[0.16] blur-[120px] rounded-full" />
+          <div className="absolute -bottom-24 right-1/4 w-80 h-80 bg-[var(--silk)]/[0.16] blur-[120px] rounded-full" />
 
           {/* Abstract SVG Orbital Geometry */}
           <svg
             viewBox="0 0 800 800"
-            className="w-[650px] h-[650px] sm:w-[850px] sm:h-[850px] opacity-35 animate-[spin_90s_linear_infinite]"
+            className="w-[650px] h-[650px] sm:w-[850px] sm:h-[850px] opacity-65 animate-[spin_90s_linear_infinite]"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx="400" cy="400" r="350" stroke="var(--color)" strokeWidth="1" strokeDasharray="4 8" opacity="0.25" />
-            <circle cx="400" cy="400" r="270" stroke="var(--cobalt)" strokeWidth="1" strokeDasharray="8 12" opacity="0.35" />
-            <ellipse cx="400" cy="400" rx="360" ry="160" stroke="url(#heroOrbitGrad1)" strokeWidth="1.2" opacity="0.5" transform="rotate(-30 400 400)" />
-            <ellipse cx="400" cy="400" rx="380" ry="130" stroke="url(#heroOrbitGrad2)" strokeWidth="1" strokeDasharray="6 10" opacity="0.4" transform="rotate(35 400 400)" />
+            <circle cx="400" cy="400" r="350" stroke="var(--color)" strokeWidth="1.2" strokeDasharray="4 8" opacity="0.45" />
+            <circle cx="400" cy="400" r="270" stroke="var(--cobalt)" strokeWidth="1.3" strokeDasharray="8 12" opacity="0.55" />
+            <ellipse cx="400" cy="400" rx="360" ry="160" stroke="url(#heroOrbitGrad1)" strokeWidth="1.6" opacity="0.75" transform="rotate(-30 400 400)" />
+            <ellipse cx="400" cy="400" rx="380" ry="130" stroke="url(#heroOrbitGrad2)" strokeWidth="1.4" strokeDasharray="6 10" opacity="0.65" transform="rotate(35 400 400)" />
             <defs>
               <linearGradient id="heroOrbitGrad1" x1="0" y1="0" x2="800" y2="800" gradientUnits="userSpaceOnUse">
                 <stop stopColor="var(--cobalt)" stopOpacity="0.8" />
@@ -72,20 +72,20 @@ export function Hero() {
         {/* Architectural Curved Corner Borders (Blending seamlessly) */}
         {/* Top-Left Corner */}
         <div className="pointer-events-none absolute top-0 left-0 sm:top-1 sm:left-1 flex items-center gap-2">
-          <div className="w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-[var(--color)]/30 rounded-tl-xl" />
-          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/50 hidden sm:inline">[01 // HERO]</span>
+          <div className="w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-[var(--color)]/55 rounded-tl-xl" />
+          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/80 hidden sm:inline">[01 // HERO]</span>
         </div>
 
         {/* Top-Right Corner */}
         <div className="pointer-events-none absolute top-0 right-0 sm:top-1 sm:right-1 flex items-center gap-2">
-          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/50 hidden sm:inline">[SYS // 2026]</span>
-          <div className="w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-r-2 border-[var(--color)]/30 rounded-tr-xl" />
+          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/80 hidden sm:inline">[SYS // 2026]</span>
+          <div className="w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-r-2 border-[var(--color)]/55 rounded-tr-xl" />
         </div>
 
         {/* Bottom-Left Corner */}
         <div className="pointer-events-none absolute bottom-0 left-0 sm:bottom-1 sm:left-1 flex items-center gap-2">
-          <div className="w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-l-2 border-[var(--color)]/30 rounded-bl-xl" />
-          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/50 hidden sm:inline">[CRAFT × DATA]</span>
+          <div className="w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-l-2 border-[var(--color)]/55 rounded-bl-xl" />
+          <span className="text-[9px] font-mono tracking-widest text-[var(--muted)]/80 hidden sm:inline">[CRAFT × DATA]</span>
         </div>
 
         {/* Bottom-Right Corner with Abstract Rotating Star */}
@@ -94,16 +94,16 @@ export function Hero() {
             animate={{ rotate: [0, 90, 180, 270, 360], scale: [1, 1.15, 1] }}
             transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
           >
-            <StarIcon className="text-xs text-[var(--silk)]/70" />
+            <StarIcon className="text-xs text-[var(--silk)]" />
           </motion.div>
-          <div className="w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 border-[var(--color)]/30 rounded-br-xl" />
+          <div className="w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 border-[var(--color)]/55 rounded-br-xl" />
         </div>
 
         {/* Floating Abstract Ambient Star Accents */}
         <motion.div
           animate={{ y: [0, -10, 0], rotate: [0, 15, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          className="pointer-events-none absolute top-12 right-12 sm:top-14 sm:right-16 text-[var(--silk)]/30 hidden md:block"
+          className="pointer-events-none absolute top-12 right-12 sm:top-14 sm:right-16 text-[var(--silk)]/65 hidden md:block"
         >
           <StarIcon className="text-lg" />
         </motion.div>
@@ -111,7 +111,7 @@ export function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0], rotate: [0, -12, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          className="pointer-events-none absolute bottom-20 left-12 text-[var(--cobalt)]/30 hidden md:block"
+          className="pointer-events-none absolute bottom-20 left-12 text-[var(--cobalt)]/65 hidden md:block"
         >
           <StarIcon className="text-sm" />
         </motion.div>
@@ -126,9 +126,9 @@ export function Hero() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-[10px] font-medium text-[var(--muted)] mb-8"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
-            <span>Available for design &amp; engineering roles</span>
+            <span>Available for Product &amp; Backend Engineering roles</span>
             <span className="text-[var(--color)]/15">•</span>
-            <span className="text-[var(--silk)]">Chennai</span>
+            <span className="text-[var(--silk)]">{profile.location}</span>
           </motion.div>
 
           {/* Intro lead */}
@@ -138,7 +138,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg md:text-xl font-normal text-[var(--muted)] mb-3 tracking-wide"
           >
-            I am {profile.name} and I am a
+            I am {profile.name} and I build
           </motion.p>
 
           {/* Aesthetic Bold Display Headline in Bricolage Grotesque */}
@@ -149,13 +149,13 @@ export function Hero() {
             className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] xl:text-[8.5rem] font-extrabold tracking-[-0.035em] text-[var(--color-light)] leading-[0.92] mb-8 select-none"
             style={{ fontVariationSettings: '"opsz" 96, "wdth" 100, "wght" 800' }}
           >
-            <span>Designer</span>{' '}
-            <span className="font-body italic font-normal text-[0.82em] text-[var(--silk)] px-1">
+            <span>Product</span>{' '}
+            <span className="font-body italic font-normal text-[0.82em] text-[var(--silk)] px-1 drop-shadow-[0_0_24px_rgba(255,77,126,0.65)]">
               &amp;
             </span>
             <br />
-            <span>Developer</span>
-            <span className="text-[var(--cobalt)]">.</span>
+            <span>Backend</span>
+            <span className="text-[var(--cobalt)] drop-shadow-[0_0_24px_rgba(59,91,255,0.7)]">.</span>
           </motion.h1>
 
           {/* Descriptor */}
@@ -205,13 +205,13 @@ export function Hero() {
           >
             <div className="flex items-center gap-2">
               <StarIcon className="text-[10px] text-[var(--silk)]/60" />
-              <span>SRM Institute of Science and Technology · CGPA 8.5</span>
+              <span>SRM Institute of Science and Technology · CGPA 9.01</span>
             </div>
             <div className="flex items-center gap-3">
-              <span>Big Data Analytics &amp; UI/UX</span>
+              <span>Distributed Systems &amp; Product Engineering</span>
               <span className="text-[var(--color)]/15">•</span>
               <span>
-                Chennai {time ? `[${time}]` : ''}
+                India {time ? `[${time}]` : ''}
               </span>
             </div>
           </motion.div>

@@ -27,6 +27,23 @@ export function CommandPalette() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  const [projectsList, setProjectsList] = useState(projects);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/api/projects')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (isMounted && data?.projects && Array.isArray(data.projects)) {
+          setProjectsList(data.projects);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const sections = [
     { label: 'Selected Work', href: '/#work', badge: 'Section' },
     { label: 'Skills & Arsenal', href: '/#skills', badge: 'Section' },
@@ -35,7 +52,7 @@ export function CommandPalette() {
     { label: 'Contact', href: '/#contact', badge: 'Section' },
   ];
 
-  const projectItems = projects.map((p) => ({
+  const projectItems = projectsList.map((p) => ({
     label: p.title,
     href: `/work/${p.slug}`,
     badge: p.track.toUpperCase(),

@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { projects } from '@/data/projects';
+import { getProjectBySlug, getDynamicProjects } from '@/lib/github';
 import { StarIcon } from '@/components/ui/StarIcon';
 
 interface PageProps {
@@ -9,15 +11,38 @@ interface PageProps {
   }>;
 }
 
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
+
+  if (!project) {
+    return {
+      title: 'Project Not Found | Devjeet Saha',
+    };
+  }
+
+  return {
+    title: `${project.title} | Devjeet Saha`,
+    description: project.summary,
+  };
+}
+
 export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+  try {
+    const { projects: dynamicProjects } = await getDynamicProjects();
+    return dynamicProjects.map((project) => ({
+      slug: project.slug,
+    }));
+  } catch {
+    return projects.map((project) => ({
+      slug: project.slug,
+    }));
+  }
 }
 
 export default async function WorkDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     notFound();

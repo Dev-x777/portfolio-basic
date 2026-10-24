@@ -29,7 +29,7 @@ export function ScrollIntro() {
   });
 
   const statement =
-    'I design user experiences that cut friction, and build data architectures that process millions of records with precision. From Figma wireframes and e-commerce conversion optimization to PySpark anomaly pipelines and real-time facial recognition, I engineer products where craft meets data.';
+    'I architect resilient distributed backend systems that handle high throughput with atomic precision, and build intuitive digital products that solve real problems. From low-latency rate limiters and task queues to full-stack platforms and clinical deep learning systems, I engineer software where reliability meets scale.';
 
   const words = statement.split(' ');
 

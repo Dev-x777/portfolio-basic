@@ -16,58 +16,46 @@ export interface Profile {
   links: {
     github: string;
     pinnedRepo: string;
-    linkedin: string; // 'TODO'
-    leetcode: string; // 'TODO'
-    resumePdf: string; // '/resume.pdf' (TODO)
-    portfolioUrl: string; // 'TODO'
+    linkedin: string;
+    leetcode: string;
+    resumePdf: string;
+    portfolioUrl: string;
   };
   education: Education[];
   coursework: string[];
 }
 
 export const profile: Profile = {
-  name: 'Shruti Raj',
-  roleLine: 'Designer and developer. UI/UX, full-stack and data engineering.',
-  heroDescriptor: 'I design it. I build it. I make the data behind it make sense.',
-  location: 'Chennai, India',
-  email: 'shrutirajjmp@gmail.com',
-  phone: '+91 9693904090',
+  name: 'Devjeet Saha',
+  roleLine: 'Product & Backend Engineer. Distributed systems, high-throughput microservices, and scalable products.',
+  heroDescriptor: 'Architecting resilient distributed backends, low-latency microservices, and high-impact products.',
+  location: 'Kolkata & Chennai, India',
+  email: 'devjeetsaha2@gmail.com',
+  phone: '+91 7980258687',
   links: {
-    github: 'https://github.com/Shrutiraj22',
-    pinnedRepo: 'https://github.com/Shrutiraj22/FaceTrace',
-    linkedin: 'TODO',
-    leetcode: 'TODO',
-    resumePdf: 'TODO',
+    github: 'https://github.com/Dev-x777',
+    pinnedRepo: 'https://github.com/Dev-x777/Rate_Limiter_As_A_Service',
+    linkedin: 'https://linkedin.com/in/devjeetsaha7777',
+    leetcode: 'https://leetcode.com/u/DEV009x',
+    resumePdf: '/resume.pdf',
     portfolioUrl: 'TODO',
   },
   education: [
     {
       institution: 'SRM Institute of Science and Technology, Chennai',
-      degree: 'B.Tech Computer Science (Big Data Analytics)',
-      period: '2023 to 2027',
-      grade: 'CGPA 8.5/10',
-    },
-    {
-      institution: 'Notre Dame Academy',
-      degree: 'Senior Secondary (XII)',
-      period: 'Completed',
-      grade: '91%',
-    },
-    {
-      institution: 'Notre Dame Academy',
-      degree: 'Matriculation (X)',
-      period: 'Completed',
-      grade: '94%',
+      degree: 'B.Tech in Computer Science (Big Data Specialization)',
+      period: 'Aug 2023 – Present',
+      grade: 'CGPA 9.01/10',
     },
   ],
   coursework: [
-    'Data Structures and Algorithms',
+    'Data Structures',
+    'Algorithms',
     'DBMS',
-    'Operating Systems',
-    'Machine Learning',
     'Artificial Intelligence',
-    'Big Data Techniques',
-    'OpenCV',
-    'Web Development',
+    'Internet Technology',
+    'Operating System',
+    'System Design',
+    'Software Engineering',
   ],
 };

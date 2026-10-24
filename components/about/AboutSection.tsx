@@ -63,10 +63,10 @@ export function AboutSection() {
           </div>
         </div>
 
-        {/* Certifications & SIH Achievement (5 cols) */}
+        {/* Honors & Distinctions (5 cols) */}
         <div className="lg:col-span-5 space-y-3">
           <span className="text-[10px] uppercase tracking-wider text-[var(--silk)] font-mono block mb-2 px-1">
-            Certifications &amp; Hackathons
+            Honors &amp; Programs
           </span>
           {achievements.map((item, idx) => (
             <motion.div

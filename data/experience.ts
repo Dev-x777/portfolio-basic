@@ -8,27 +8,34 @@ export interface ExperienceItem {
 
 export const experiences: ExperienceItem[] = [
   {
-    id: 'bhagalpur-silk',
-    role: 'UI/UX Design Lead',
-    organization: 'Bhagalpur Silk',
-    period: 'May 2024 to Jul 2024',
+    id: 'infosys',
+    role: 'iOS Developer Intern',
+    organization: 'Infosys',
+    period: 'March 2026 to Present',
     highlights: [
-      'UX research and redesign of the e-commerce platform, bounce rate down 25%',
-      'Responsive wireframes in Figma, mobile conversion up 18%',
-      'Worked with a cross-functional team of 3 for consistency across devices',
-      'Delivered final UI assets and handoff documentation in Figma',
+      'Led development of the Maintenance Module for a Fleet Management System using Swift, handling service scheduling, defect tracking, and history management for 100+ vehicles.',
+      'Collaborated in a 10-member Agile team using Jira, completing 40+ user stories across sprints and reducing manual maintenance tracking effort by 30–35%.',
     ],
   },
   {
-    id: 'team-aaruush',
-    role: 'UI/UX Designer',
-    organization: 'Team Aaruush (college tech fest)',
-    period: 'Oct 2023 to Mar 2025',
+    id: 'apple-student-dev',
+    role: 'Student Developer',
+    organization: 'Apple Student Developer Program (Apple • Infosys • SRMIST)',
+    period: 'May 2025 to Present',
     highlights: [
-      'Designed and built the official tech fest website, 50+ dynamic pages',
-      'User engagement up 30% through responsive design and optimization',
-      'Led a team of 4 to keep branding and UI consistent',
-      'Ran 10+ usability tests and iterated on student feedback',
+      'Selected out of 2,000+ applicants for the prestigious Apple Student Developer Program, powered by Apple in collaboration with Infosys at SRMIST.',
+      'Developing 2+ production-grade iOS applications using Swift and UIKit, rigorously aligned with Apple Human Interface Guidelines.',
+    ],
+  },
+  {
+    id: 'team-envision',
+    role: 'Flutter App Developer',
+    organization: 'Team Envision — Aarush Techfest (SRM IST)',
+    period: 'Oct 2024 to Jun 2025',
+    highlights: [
+      'Built an event registration app in Flutter adopted by 1,000+ attendees; integrated REST APIs for schedule sync and real-time notifications.',
+      'Mentored 3 juniors on modular UI design and GetX patterns; improved code reuse and reduced review cycles.',
+      'Deployed 5 production-ready builds following full SDLC; resolved 10+ pre-event issues to ensure 100% uptime.',
     ],
   },
 ];

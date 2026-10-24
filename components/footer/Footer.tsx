@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { profile } from '@/data/profile';
 import { StarIcon } from '@/components/ui/StarIcon';
 
 export function Footer() {
@@ -13,7 +12,7 @@ export function Footer() {
     <footer className="py-8 px-6 sm:px-12 md:px-20 border-t border-[var(--color)]/10 text-xs font-mono text-[var(--color)]/40 flex flex-col sm:flex-row justify-between items-center gap-4">
       <div className="flex items-center gap-2">
         <StarIcon className="text-xs text-[var(--silk)]" />
-        <span>© 2026 {profile.name} · Designed &amp; engineered with care.</span>
+        <span>© 2026 Dev · Designed &amp; engineered with care.</span>
       </div>
 
       <button
