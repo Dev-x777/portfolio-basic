@@ -1,8 +1,8 @@
 # DESIGN.md
 
 ## Concept
-Shruti is a designer who ships code and engineers data systems. The site should feel like a designer's studio that is also a working build: confident, bold type, precise grid, and everything runs smoothly.
-Audience: recruiters, hiring managers, design/engineering teams. Primary job: get them to open a project and then contact her.
+Devjeet Saha (Dev) is a product and backend engineer who builds distributed systems, high-throughput microservices, and high-impact products. The site should feel like a designer's studio that is also a working build: confident, bold type, precise grid, and everything runs smoothly.
+Audience: recruiters, hiring managers, engineering teams. Primary job: get them to inspect a project and contact him.
 
 **The one memorable thing:** her name set in huge variable type whose weight and width respond to the cursor and to scroll. Everything else stays quiet and disciplined.
 
@@ -32,10 +32,10 @@ Sections alternate between full-bleed cobalt, paper and ink panels. Check AA con
 - Skills: grouped large type lists, not logo grids.
 
 ```
-HERO            WORK (design | engineering)       ABOUT
+HERO            WORK (backend | product)          ABOUT
 +-------------+ +-------------------------------+ +-------------------+
-| SHRUTI      | | Project title      [image]    | | short bio   photo |
-| RAJ         | | one-line result               | |                   |
+| DEVJEET     | | Project title      [image]    | | short bio   photo |
+| SAHA        | | one-line result               | |                   |
 | descriptor  | | ---------------------------   | +-------------------+
 +-------------+ | Project title      [image]    |
                 +-------------------------------+
@@ -45,12 +45,12 @@ HERO            WORK (design | engineering)       ABOUT
 1. **Global:** Lenis smooth scroll (lerp ~0.1), synced with GSAP ticker. This is the base "buttery" feel.
 2. **Hero moment (one orchestrated load sequence):** the name assembles letter by letter from a thin, narrow state and settles to heavy; after that the weight and width follow the cursor (desktop) or scroll progress (mobile). No separate preloader.
 3. **Scroll moment (one):** Selected Work section pins and cards stack or slide over each other with scrubbed transforms.
-4. **Interaction motion (visitor-triggered, welcome everywhere):** magnetic CTA buttons only, project card hover (image scale and clip-path), Design/Engineering toggle layout animation, nav overlay open/close, Ask Shruti chat open, form states, shared-element transition from project card image to case-study hero.
+4. **Interaction motion (visitor-triggered, welcome everywhere):** magnetic CTA buttons only, project card hover (image scale and clip-path), Backend/Product toggle layout animation, nav overlay open/close, Ask Dev chat open, form states, shared-element transition from project card image to case-study hero.
 Easings: `expo.out` and cubic-bezier(0.76, 0, 0.24, 1) for in/out. Durations 0.4 to 1.0s. Defined once in `lib/motion/tokens.ts`.
 Do NOT add scroll-triggered reveals to every heading or card.
 
 ## AI-first features
-- **Ask Shruti:** a chat panel that answers questions about her work, grounded only in `data/*` (see CONTENT.md). Streams responses, politely declines off-topic questions, and links to the relevant project.
+- **Ask Dev:** a chat panel that answers questions about his work, grounded only in `data/*` (see CONTENT.md). Streams responses, politely declines off-topic questions, and links to the relevant project.
 - **Command palette (Cmd/Ctrl+K):** jump to projects, sections, copy email, open GitHub, open the chat.
 - **Machine-readable site:** `public/llms.txt`, JSON-LD (Person, CreativeWork per project), clean semantic HTML, sitemap, OG images, so AI tools and recruiters' search tools read it correctly.
 

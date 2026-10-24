@@ -1,6 +1,6 @@
-# AGENTS.md: always-on rules for the Shruti Raj portfolio
+# AGENTS.md: always-on rules for the Devjeet Saha portfolio
 
-You are building the portfolio of SHRUTI RAJ, a developer who is also a designer.
+You are building the portfolio of DEVJEET SAHA (Dev), a product and backend engineer.
 Before EVERY task, re-read: `docs/DESIGN.md`, `docs/CONTENT.md`, `docs/PLAN.md`.
 These files are the source of truth. If this chat and the files disagree, the files win.
 

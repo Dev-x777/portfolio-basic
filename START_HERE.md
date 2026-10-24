@@ -1,6 +1,6 @@
 # How to use this kit in Antigravity
 
-1. Create an empty folder `shruti-portfolio`, copy everything in this kit into it (including the hidden `.agent` folder), and open that folder as the Antigravity workspace.
+1. Create an empty folder `dev-portfolio`, copy everything in this kit into it (including the hidden `.agent` folder), and open that folder as the Antigravity workspace.
 2. Rules: `AGENTS.md` and `.agent/rules/portfolio.md` hold the always-on rules. If your Antigravity version looks for rules elsewhere, paste the contents of AGENTS.md into Settings > Rules (workspace).
 3. Paste this into the agent to start Phase 0:
 
