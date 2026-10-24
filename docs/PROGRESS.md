@@ -264,4 +264,20 @@
   - `pnpm lint` passed with 0 errors.
   - `pnpm build` passed with 0 errors (43/43 routes generated).
 
+---
+
+## Refinement: Brighten Intro Lead & Scale Dimensions to 90%
+- **Status**: Completed, Verified & Deployed
+- **Changes**:
+  1. **Intro Lead Text Brightness**:
+     - Updated *"I am Devjeet Saha and I build"* from muted grey (`text-[var(--muted)]`) to bright, crisp white (`text-[var(--color-light)] font-medium`) with `Devjeet Saha` bolded in pure white (`text-white`) and subtle luminous glow (`drop-shadow-[0_2px_12px_rgba(255,255,255,0.18)]`).
+  2. **100% Zoom Dimension Scaling**:
+     - Set root `font-size: 90%` on `html` in [`app/globals.css`](file:///Users/dev/Desktop/portfolio/app/globals.css), naturally reducing all rem-based layout dimensions, paddings, and font sizes so that at default 100% zoom the site looks compact and proportional (identical to 90% browser zoom).
+     - Scaled display headline in [`components/hero/Hero.tsx`](file:///Users/dev/Desktop/portfolio/components/hero/Hero.tsx) to `text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] xl:text-[7.2rem]`.
+     - Scaled card dimensions in [`components/work/WorkSection.tsx`](file:///Users/dev/Desktop/portfolio/components/work/WorkSection.tsx) to `w-[84vw] sm:w-[410px] md:w-[450px]` and `min-h-[450px]` (inner `min-h-[390px]`).
+- **Verification**:
+  - `pnpm lint` & `pnpm build` passed with code 0.
+  - Visual verification with screenshot showing compact, well-proportioned layout at 100% zoom.
+  - Pushed to `origin/main` for automated deployment to `https://devisiuuu.me`.
+
 
