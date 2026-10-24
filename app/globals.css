@@ -125,6 +125,7 @@ html.theme-transitioning *::after {
 
 /* Base styles */
 html {
+  font-size: 90%;
   background-color: var(--background);
   color: var(--color);
   font-family: var(--font-display);

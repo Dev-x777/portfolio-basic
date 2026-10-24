@@ -131,14 +131,14 @@ export function Hero() {
             <span className="text-[var(--silk)]">{profile.location}</span>
           </motion.div>
 
-          {/* Intro lead */}
+          {/* Intro lead - Bright, crisp, and clearly legible */}
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base sm:text-lg md:text-xl font-normal text-[var(--muted)] mb-3 tracking-wide"
+            className="text-base sm:text-lg md:text-xl font-medium text-[var(--color-light)] mb-3 tracking-wide drop-shadow-[0_2px_12px_rgba(255,255,255,0.18)]"
           >
-            I am {profile.name} and I build
+            I am <span className="font-semibold text-white drop-shadow-[0_0_16px_rgba(255,255,255,0.35)]">{profile.name}</span> and I build
           </motion.p>
 
           {/* Aesthetic Bold Display Headline in Bricolage Grotesque */}
@@ -146,7 +146,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.98, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] xl:text-[8.5rem] font-extrabold tracking-[-0.035em] text-[var(--color-light)] leading-[0.92] mb-8 select-none"
+            className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] xl:text-[7.2rem] font-extrabold tracking-[-0.035em] text-[var(--color-light)] leading-[0.92] mb-7 select-none"
             style={{ fontVariationSettings: '"opsz" 96, "wdth" 100, "wght" 800' }}
           >
             <span>Product</span>{' '}
@@ -163,7 +163,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="font-body text-lg sm:text-xl md:text-2xl text-[var(--color)]/60 max-w-xl leading-relaxed mb-12"
+            className="font-body text-base sm:text-lg md:text-xl text-[var(--color)]/80 max-w-xl leading-relaxed mb-10"
           >
             {profile.heroDescriptor}
           </motion.p>

@@ -214,7 +214,7 @@ export function WorkSection() {
                   stiffness: 350,
                   damping: 25,
                 }}
-                className={`w-[88vw] sm:w-[460px] md:w-[500px] flex-shrink-0 snap-start flex flex-col min-h-[500px] rounded-3xl transition-all duration-300 ${
+                className={`w-[84vw] sm:w-[410px] md:w-[450px] flex-shrink-0 snap-start flex flex-col min-h-[450px] rounded-3xl transition-all duration-300 ${
                   isLight
                     ? 'hover:shadow-[0_24px_50px_-15px_rgba(37,99,235,0.15)]'
                     : 'hover:shadow-[0_24px_60px_-15px_rgba(236,72,153,0.20)]'
@@ -237,7 +237,7 @@ export function WorkSection() {
                   tiltStrength={7}
                   className="w-full h-full"
                 >
-                  <div className="relative z-10 flex flex-col justify-between h-full min-h-[440px] p-2 sm:p-3">
+                  <div className="relative z-10 flex flex-col justify-between h-full min-h-[390px] p-2 sm:p-3">
                     <div className="flex flex-col gap-5">
                       {/* Top row: Track Badge + Index Counter */}
                       <div className="flex justify-between items-center text-[10px] font-mono">
