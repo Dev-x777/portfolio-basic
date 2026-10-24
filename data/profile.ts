@@ -38,7 +38,7 @@ export const profile: Profile = {
     linkedin: 'https://linkedin.com/in/devjeetsaha7777',
     leetcode: 'https://leetcode.com/u/DEV009x',
     resumePdf: '/resume.pdf',
-    portfolioUrl: 'TODO',
+    portfolioUrl: 'https://devisiuuu.me',
   },
   education: [
     {
